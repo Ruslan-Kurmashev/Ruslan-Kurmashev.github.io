@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ruslan-kurmashev.github.io/sitemap.xml
