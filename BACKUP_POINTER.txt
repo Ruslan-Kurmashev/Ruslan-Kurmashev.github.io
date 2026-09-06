@@ -1,0 +1,1 @@
+The pre-al-folio custom implementation is retained in git history. This marker was added before the visual migration.
