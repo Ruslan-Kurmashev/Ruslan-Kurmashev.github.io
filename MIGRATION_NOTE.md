@@ -1,0 +1,1 @@
+Migration in progress: converting the site from the initial custom Scientific Editorial implementation to an al-folio-based academic website while preserving Google Scholar metadata and publication URLs.
