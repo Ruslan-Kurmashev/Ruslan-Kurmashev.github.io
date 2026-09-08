@@ -33,10 +33,15 @@ if (toggle && nav) {
   }));
 }
 
-const footerLinks = document.querySelector('.footer-links');
-if (footerLinks && !footerLinks.querySelector('a[href*="researchgate.net"]')) {
-  const researchGate = document.createElement('a');
-  researchGate.href = 'https://www.researchgate.net/profile/Ruslan-Kurmashev';
-  researchGate.textContent = 'ResearchGate';
-  footerLinks.appendChild(researchGate);
+const researchGateUrl = 'https://www.researchgate.net/profile/Ruslan-Kurmashev';
+
+function appendResearchGate(container, label = 'ResearchGate') {
+  if (!container || container.querySelector('a[href*="researchgate.net"]')) return;
+  const link = document.createElement('a');
+  link.href = researchGateUrl;
+  link.textContent = label;
+  container.appendChild(link);
 }
+
+appendResearchGate(document.querySelector('.footer-links'));
+document.querySelectorAll('.social-links').forEach(group => appendResearchGate(group));
