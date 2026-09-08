@@ -1,0 +1,38 @@
+name: Generate social preview PNG
+
+on:
+  push:
+    paths:
+      - 'assets/img/og-card.svg'
+      - '.github/workflows/generate-og-png.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install SVG renderer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y librsvg2-bin
+
+      - name: Render 1200x630 PNG
+        run: rsvg-convert -w 1200 -h 630 assets/img/og-card.svg -o assets/img/og-card.png
+
+      - name: Commit generated PNG
+        run: |
+          if git diff --quiet -- assets/img/og-card.png; then
+            echo "No preview change to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/img/og-card.png
+          git commit -m "Render social preview PNG"
+          git push
