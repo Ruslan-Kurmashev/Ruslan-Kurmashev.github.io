@@ -1,11 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Ruslan Kurmashev academic profile</title>
+  <desc id="desc">Social preview card for Ruslan Kurmashev, MD, computational biology researcher focused on autism and neurodevelopment.</desc>
   <rect width="1200" height="630" fill="#ffffff"/>
-  <rect x="0" y="0" width="1200" height="14" fill="#1b4f72"/>
-  <text x="92" y="220" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700" fill="#161616">Ruslan Kurmashev</text>
-  <text x="92" y="292" font-family="Arial, Helvetica, sans-serif" font-size="31" fill="#4f5961">Medical Doctor · Computational Biology Researcher</text>
-  <text x="92" y="360" font-family="Arial, Helvetica, sans-serif" font-size="29" fill="#1b4f72">Autism · Neurodevelopment · Biomedical AI</text>
-  <line x1="92" y1="420" x2="1108" y2="420" stroke="#dfe4e8" stroke-width="2"/>
-  <text x="92" y="490" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#687078">ruslan-kurmashev.github.io</text>
-  <circle cx="1060" cy="495" r="54" fill="#f5f7f8" stroke="#dfe4e8" stroke-width="2"/>
-  <text x="1060" y="506" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1b4f72">RK</text>
+  <rect width="1200" height="18" fill="#1b4f72"/>
+  <rect x="78" y="82" width="7" height="420" rx="3.5" fill="#1b4f72"/>
+
+  <text x="122" y="185" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" fill="#111111">Ruslan Kurmashev, MD</text>
+  <text x="122" y="246" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="400" fill="#4f5961">Computational Biology Researcher</text>
+  <text x="122" y="305" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400" fill="#1b4f72">Autism · Neurodevelopment · Biomedical AI</text>
+
+  <line x1="122" y1="355" x2="745" y2="355" stroke="#dfe4e8" stroke-width="2"/>
+  <text x="122" y="408" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#5d666d">MSc Computational Biology candidate · Munster Technological University</text>
+  <text x="122" y="452" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#5d666d">Dublin, Ireland</text>
+  <text x="122" y="535" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#687078">ruslan-kurmashev.github.io</text>
+
+  <circle cx="939" cy="231" r="104" fill="#f6f8f9" stroke="#dfe4e8" stroke-width="2"/>
+  <circle cx="1029" cy="347" r="74" fill="#ffffff" stroke="#dfe4e8" stroke-width="2"/>
+  <circle cx="882" cy="408" r="54" fill="#eef3f6" stroke="#dfe4e8" stroke-width="2"/>
+  <line x1="892" y1="311" x2="989" y2="330" stroke="#b8c8d3" stroke-width="3"/>
+  <line x1="914" y1="315" x2="892" y2="366" stroke="#b8c8d3" stroke-width="3"/>
+  <line x1="974" y1="383" x2="924" y2="395" stroke="#b8c8d3" stroke-width="3"/>
+  <text x="939" y="250" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#1b4f72">RK</text>
+  <circle cx="1041" cy="148" r="9" fill="#1b4f72"/>
+  <circle cx="1110" cy="256" r="6" fill="#8aa8ba"/>
+  <circle cx="1033" cy="465" r="8" fill="#1b4f72"/>
 </svg>
