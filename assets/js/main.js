@@ -32,3 +32,11 @@ if (toggle && nav) {
     toggle.setAttribute('aria-expanded', 'false');
   }));
 }
+
+const footerLinks = document.querySelector('.footer-links');
+if (footerLinks && !footerLinks.querySelector('a[href*="researchgate.net"]')) {
+  const researchGate = document.createElement('a');
+  researchGate.href = 'https://www.researchgate.net/profile/Ruslan-Kurmashev';
+  researchGate.textContent = 'ResearchGate';
+  footerLinks.appendChild(researchGate);
+}
