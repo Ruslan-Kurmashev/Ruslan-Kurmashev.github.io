@@ -180,7 +180,7 @@
   },
   {
     "slug": "mesenteric-lymph-node-portal-vein",
-    "status": "WARN",
+    "status": "PASS",
     "title": "Лимфатический узел брыжейки тонкой кишки при пережатии воротной вены",
     "authors": [
       "Р. Ж. Курмашев",
@@ -192,10 +192,8 @@
     "doi": "",
     "canonical": "https://ruslan-kurmashev.github.io/publications/mesenteric-lymph-node-portal-vein/",
     "local_pdfs": [],
-    "has_visible_abstract_heading": false,
-    "issues": [
-      "no visible Abstract heading and no local full-text PDF"
-    ]
+    "has_visible_abstract_heading": true,
+    "issues": []
   },
   {
     "slug": "pediatric-appendicitis-under-five",
