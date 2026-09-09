@@ -244,7 +244,7 @@
   },
   {
     "slug": "piperidine-local-anesthesia",
-    "status": "WARN",
+    "status": "PASS",
     "title": "Experimental study of local anesthetic activity of a row new derivatives of piperidin on the model of infiltration anesthesia",
     "authors": [
       "D. M. Kadyrova",
@@ -261,10 +261,8 @@
     "doi": "",
     "canonical": "https://ruslan-kurmashev.github.io/publications/piperidine-local-anesthesia/",
     "local_pdfs": [],
-    "has_visible_abstract_heading": false,
-    "issues": [
-      "no visible Abstract heading and no local full-text PDF"
-    ]
+    "has_visible_abstract_heading": true,
+    "issues": []
   },
   {
     "slug": "qchat-behavioral-domains",

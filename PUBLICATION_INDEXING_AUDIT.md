@@ -3,8 +3,8 @@
 Automated structural audit against the core Google Scholar webmaster requirements: one URL per work, bibliographic Highwire meta tags, crawlable HTML, canonical URLs, visible scholarly content, and local PDF linkage where a local full-text file exists.
 
 - Publication pages checked: **21**
-- PASS: **11**
-- WARN: **10**
+- PASS: **12**
+- WARN: **9**
 - FAIL: **0**
 - robots.txt present: **yes**
 - sitemap declared in robots.txt: **yes**
@@ -24,7 +24,7 @@ Automated structural audit against the core Google Scholar webmaster requirement
 | `mesenteric-lymph-node-portal-vein` | WARN | 2 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
 | `pediatric-appendicitis-under-five` | WARN | 2 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
 | `peptic-ulcer-perforation-risk-factors` | WARN | 3 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
-| `piperidine-local-anesthesia` | WARN | 7 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
+| `piperidine-local-anesthesia` | PASS | 7 | yes | no | 0 | yes | — |
 | `qchat-behavioral-domains` | PASS | 1 | yes | yes | 1 | yes | — |
 | `salivary-rna-autism` | PASS | 1 | yes | yes | 0 | yes | — |
 | `screening-not-diagnosis-conference` | WARN | 1 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
