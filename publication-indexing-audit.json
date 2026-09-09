@@ -140,7 +140,7 @@
   },
   {
     "slug": "kidney-transplantation-case",
-    "status": "WARN",
+    "status": "PASS",
     "title": "Клинический случай трансплантации почки",
     "authors": [
       "Г. М. Хайбуллина",
@@ -160,10 +160,8 @@
     "doi": "",
     "canonical": "https://ruslan-kurmashev.github.io/publications/kidney-transplantation-case/",
     "local_pdfs": [],
-    "has_visible_abstract_heading": false,
-    "issues": [
-      "no visible Abstract heading and no local full-text PDF"
-    ]
+    "has_visible_abstract_heading": true,
+    "issues": []
   },
   {
     "slug": "latent-tuberculosis-biomarkers",
