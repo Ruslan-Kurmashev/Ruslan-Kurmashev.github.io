@@ -14,32 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download PDF from Zenodo record
+      - name: Download author-held CC BY preprint PDF
         shell: bash
         run: |
           set -euo pipefail
-          record='18250085'
           dest='publications/transfer-learning-autism/kurmashev-2026-transfer-learning-autdb.pdf'
-          meta="$(mktemp)"
-          curl -A 'Mozilla/5.0' --retry 3 -fL "https://zenodo.org/api/records/${record}" -o "$meta"
-          url=$(python3 - "$meta" <<'PY'
-          import json, sys
-          d=json.load(open(sys.argv[1], encoding='utf-8'))
-          files=d.get('files', [])
-          pdfs=[]
-          for f in files:
-              key=(f.get('key') or '').lower()
-              typ=((f.get('type') or '') + ' ' + (f.get('mimetype') or '')).lower()
-              if key.endswith('.pdf') or 'application/pdf' in typ:
-                  u=(f.get('links') or {}).get('self') or (f.get('links') or {}).get('content')
-                  if u:
-                      pdfs.append(u)
-          print(pdfs[0] if pdfs else '')
-          PY
-          )
-          test -n "$url"
           tmp="$(mktemp)"
-          curl -A 'Mozilla/5.0' --retry 3 -fL "$url" -o "$tmp"
+          # Author-held copy of the Zenodo v1 preprint (CC BY 4.0).
+          url='https://drive.usercontent.google.com/download?id=1m3E_xRh80HYNe3DaYBpWwvGTWWuD77LH&export=download&confirm=t'
+          curl -A 'Mozilla/5.0' --retry 3 --retry-delay 2 -fL "$url" -o "$tmp"
           test "$(head -c 4 "$tmp")" = '%PDF'
           mkdir -p "$(dirname "$dest")"
           cp "$tmp" "$dest"
