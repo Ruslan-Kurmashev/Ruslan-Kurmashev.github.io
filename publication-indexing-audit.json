@@ -81,8 +81,8 @@
   },
   {
     "slug": "early-autism-identification",
-    "status": "WARN",
-    "title": "Failure points in the early autism identification pathway for children aged 0-5 years: Why screening is not diagnosis",
+    "status": "PASS",
+    "title": "Failure points in the early autism identification pathway for children aged 0–5 years: Why screening is not diagnosis",
     "authors": [
       "Ruslan Kurmashev",
       "Mavile Karaieva"
@@ -96,9 +96,7 @@
       "kurmashev-2026-early-autism-identification.pdf"
     ],
     "has_visible_abstract_heading": true,
-    "issues": [
-      "citation_title differs from H1"
-    ]
+    "issues": []
   },
   {
     "slug": "femur-anthropometry",
