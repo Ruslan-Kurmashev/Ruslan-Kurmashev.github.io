@@ -30,6 +30,7 @@ jobs:
               'transcriptomic-convergence-asd': 'kurmashev-2026-transcriptomic-convergence.pdf',
               'early-autism-identification': 'kurmashev-2026-early-autism-identification.pdf',
               'cortical-transcriptomics-asd': 'kurmashev-2026-cortical-transcriptomics.pdf',
+              'transfer-learning-autism': 'kurmashev-2026-transfer-learning-autdb.pdf',
               'qchat-behavioral-domains': 'kurmashev-2024-qchat-autism.pdf',
           }
 
