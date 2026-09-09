@@ -1,0 +1,154 @@
+name: Archive open-access publication PDFs
+
+on:
+  push:
+    paths:
+      - '.github/workflows/archive-open-access-pdfs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive-pdfs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+
+      - name: Download verified open-access PDFs
+        shell: bash
+        run: |
+          set -u
+
+          is_pdf() {
+            test -s "$1" && test "$(head -c 4 "$1")" = '%PDF'
+          }
+
+          save_direct() {
+            local url="$1" dest="$2"
+            local tmp
+            tmp="$(mktemp)"
+            echo "Trying $url"
+            if curl -A 'Mozilla/5.0' --retry 3 --retry-delay 2 -fL "$url" -o "$tmp" && is_pdf "$tmp"; then
+              mkdir -p "$(dirname "$dest")"
+              cp "$tmp" "$dest"
+              echo "Archived $dest ($(wc -c < "$dest") bytes)"
+              return 0
+            fi
+            echo "Direct PDF fetch failed: $url"
+            return 1
+          }
+
+          save_page_pdf() {
+            local page="$1" dest="$2"
+            local html pdf_url tmp
+            html="$(mktemp)"
+            tmp="$(mktemp)"
+            echo "Discovering PDF from $page"
+            if ! curl -A 'Mozilla/5.0' --retry 3 --retry-delay 2 -fL "$page" -o "$html"; then
+              echo "Could not fetch page: $page"
+              return 1
+            fi
+            pdf_url=$(python3 - "$html" "$page" <<'PY'
+          import re, sys
+          from html import unescape
+          from urllib.parse import urljoin
+          html = open(sys.argv[1], encoding='utf-8', errors='ignore').read()
+          base = sys.argv[2]
+          links = [unescape(x) for x in re.findall(r'href=["\']([^"\']+)["\']', html, flags=re.I)]
+          pdfs = [urljoin(base, x) for x in links if '.pdf' in x.lower()]
+          preferred = [x for x in pdfs if any(k in x.lower() for k in ('article','journal','sjmps','download','pdf'))]
+          print((preferred or pdfs)[0] if (preferred or pdfs) else '')
+          PY
+            )
+            test -n "$pdf_url" || { echo "No PDF link found on $page"; return 1; }
+            echo "Found PDF: $pdf_url"
+            if curl -A 'Mozilla/5.0' --retry 3 --retry-delay 2 -fL "$pdf_url" -o "$tmp" && is_pdf "$tmp"; then
+              mkdir -p "$(dirname "$dest")"
+              cp "$tmp" "$dest"
+              echo "Archived $dest ($(wc -c < "$dest") bytes)"
+              return 0
+            fi
+            echo "Discovered URL was not a valid PDF"
+            return 1
+          }
+
+          save_pmc() {
+            local pmcid="$1" dest="$2"
+            local xml tgz_url work pdf
+            xml="$(mktemp)"
+            work="$(mktemp -d)"
+            echo "Fetching PMC OA package for $pmcid"
+            if ! curl -A 'Mozilla/5.0' --retry 3 --retry-delay 2 -fL "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=$pmcid" -o "$xml"; then
+              return 1
+            fi
+            tgz_url=$(python3 - "$xml" <<'PY'
+          import re, sys
+          s=open(sys.argv[1], encoding='utf-8', errors='ignore').read()
+          m=re.search(r'<link[^>]+format="tgz"[^>]+href="([^"]+)"', s)
+          if not m:
+              m=re.search(r'href="([^"]+\.tar\.gz)"', s)
+          u=m.group(1) if m else ''
+          if u.startswith('ftp://ftp.ncbi.nlm.nih.gov/'):
+              u='https://ftp.ncbi.nlm.nih.gov/'+u.split('ftp://ftp.ncbi.nlm.nih.gov/',1)[1]
+          print(u)
+          PY
+            )
+            test -n "$tgz_url" || { echo "No PMC OA package found for $pmcid"; return 1; }
+            if ! curl -A 'Mozilla/5.0' --retry 3 --retry-delay 2 -fL "$tgz_url" -o "$work/pkg.tar.gz"; then
+              return 1
+            fi
+            tar -xzf "$work/pkg.tar.gz" -C "$work"
+            pdf=$(find "$work" -type f -iname '*.pdf' | head -n 1)
+            test -n "$pdf" && is_pdf "$pdf" || { echo "No valid PDF in PMC package for $pmcid"; return 1; }
+            mkdir -p "$(dirname "$dest")"
+            cp "$pdf" "$dest"
+            echo "Archived $dest ($(wc -c < "$dest") bytes)"
+          }
+
+          # 2025 original research - CC BY-NC 4.0 in the final published PDF.
+          save_page_pdf \
+            'https://saudijournals.com/articles/13073/' \
+            'publications/age-moderation-abide/kurmashev-2025-age-moderation-abide.pdf' || true
+
+          # 2026 Wiley open-access articles - CC BY 4.0.
+          save_direct \
+            'https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ajmg.b.70025' \
+            'publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf' || true
+
+          save_direct \
+            'https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/jdn.70157' \
+            'publications/transcriptomic-convergence-asd/kurmashev-2026-transcriptomic-convergence.pdf' \
+            || save_pmc 'PMC13348487' 'publications/transcriptomic-convergence-asd/kurmashev-2026-transcriptomic-convergence.pdf' \
+            || true
+
+          save_direct \
+            'https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ped4.70079' \
+            'publications/early-autism-identification/kurmashev-2026-early-autism-identification.pdf' \
+            || save_pmc 'PMC13475711' 'publications/early-autism-identification/kurmashev-2026-early-autism-identification.pdf' \
+            || true
+
+          # 2026 Elsevier open-access article - CC BY 4.0; archive from PMC OA package.
+          save_pmc \
+            'PMC13264101' \
+            'publications/cortical-transcriptomics-asd/kurmashev-2026-cortical-transcriptomics.pdf' || true
+
+          # 2026 UniversePG article; publisher provides a public PDF and the article is distributed as CC BY 4.0.
+          save_direct \
+            'https://www.universepg.com/public/img/storage/journal-pdf/1783958547_Transcriptomic_signatures_in_autism_spectrum_disorder_opportunities.pdf' \
+            'publications/transcriptomic-signatures-asd/kurmashev-2026-transcriptomic-signatures.pdf' || true
+
+      - name: Commit archived PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add publications/**/*.pdf
+          if git diff --cached --quiet; then
+            echo 'No new or changed PDFs to commit.'
+            exit 0
+          fi
+          git commit -m 'Archive open-access publication PDFs'
+          git push
