@@ -25,6 +25,7 @@ jobs:
           site = 'https://ruslan-kurmashev.github.io'
           records = {
               'age-moderation-abide': 'kurmashev-2025-age-moderation-abide.pdf',
+              'ube3a-dosage-autism': 'kurmashev-2026-ube3a-dosage.pdf',
               'transcriptomic-signatures-asd': 'kurmashev-2026-transcriptomic-signatures.pdf',
               'transcriptomic-convergence-asd': 'kurmashev-2026-transcriptomic-convergence.pdf',
               'early-autism-identification': 'kurmashev-2026-early-autism-identification.pdf',
@@ -83,14 +84,12 @@ jobs:
               p.write_text(html, encoding='utf-8')
               print('Enhanced:', p)
 
-          # Add PDF links to the canonical publication list.
           pub_index = Path('publications/index.html')
           html = pub_index.read_text(encoding='utf-8')
           for slug, pdf in records.items():
               rel = f'/publications/{slug}/{pdf}'
               if rel in html:
                   continue
-              # Restrict replacement to the article element containing this publication slug.
               pat = re.compile(r'(<article class="pub-item">(?:(?!</article>).)*?/publications/' + re.escape(slug) + r'/(?:(?!</article>).)*?<div class="pub-links">)(.*?)(</div></article>)', re.S)
               m = pat.search(html)
               if m:
@@ -99,7 +98,6 @@ jobs:
                   print('Added list PDF:', slug)
           pub_index.write_text(html, encoding='utf-8')
 
-          # Add PDF links to Selected Publications on the home page where present.
           home = Path('index.html')
           html = home.read_text(encoding='utf-8')
           for slug, pdf in records.items():
@@ -114,7 +112,6 @@ jobs:
                   print('Added home PDF:', slug)
           home.write_text(html, encoding='utf-8')
 
-          # Add each local full-text PDF to the sitemap so it is directly crawlable.
           sitemap = Path('sitemap.xml')
           sm = sitemap.read_text(encoding='utf-8')
           additions = []
