@@ -58,7 +58,7 @@
   },
   {
     "slug": "covid19-acute-abdomen",
-    "status": "WARN",
+    "status": "PASS",
     "title": "ОСТРЫЙ ЖИВОТ, КАК НЕСПЕЦИФИЧЕСКОЕ ПРОЯВЛЕНИЕ COVID-19. СИСТЕМАТИЧЕСКИЙ ОБЗОР",
     "authors": [
       "Руслан Жанатович Курмашев",
@@ -74,10 +74,8 @@
     "doi": "",
     "canonical": "https://ruslan-kurmashev.github.io/publications/covid19-acute-abdomen/",
     "local_pdfs": [],
-    "has_visible_abstract_heading": false,
-    "issues": [
-      "no visible Abstract heading and no local full-text PDF"
-    ]
+    "has_visible_abstract_heading": true,
+    "issues": []
   },
   {
     "slug": "early-autism-identification",
