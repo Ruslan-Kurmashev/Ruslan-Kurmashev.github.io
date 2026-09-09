@@ -1,0 +1,420 @@
+[
+  {
+    "slug": "age-moderation-abide",
+    "status": "PASS",
+    "title": "Age Moderation of Associations Between Autism Symptom Domains and Subcortical Volumes: A Multi-Site ABIDE I Study",
+    "authors": [
+      "Ruslan Kurmashev"
+    ],
+    "publication_date": "2025/12/30",
+    "journal": "Saudi Journal of Medical and Pharmaceutical Sciences",
+    "conference": "",
+    "doi": "10.36348/sjmps.2025.v11i12.019",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/age-moderation-abide/",
+    "local_pdfs": [
+      "kurmashev-2025-age-moderation-abide.pdf"
+    ],
+    "has_visible_abstract_heading": true,
+    "issues": []
+  },
+  {
+    "slug": "comparative-duodenum-pancreas-anatomy",
+    "status": "WARN",
+    "title": "Сравнительная анатомия двенадцатиперстной кишки и поджелудочной железы животного и человека",
+    "authors": [
+      "Р. Ж. Курмашев",
+      "Ж. М. Дюсекеева",
+      "Д. Е. Чен",
+      "А. Т. Дюсембаева"
+    ],
+    "publication_date": "2016/12/08",
+    "journal": "",
+    "conference": "I Международная морфологическая научно-практическая конкурс-конференция студентов и молодых ученых, посвященная памяти профессора М. Я. Субботина",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/comparative-duodenum-pancreas-anatomy/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "cortical-transcriptomics-asd",
+    "status": "PASS",
+    "title": "Cortical transcriptomic dysregulation in Autism spectrum disorder: A conceptual synthesis",
+    "authors": [
+      "Ruslan Kurmashev"
+    ],
+    "publication_date": "2026/06/06",
+    "journal": "IBRO Neuroscience Reports",
+    "conference": "",
+    "doi": "10.1016/j.ibneur.2026.06.004",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/cortical-transcriptomics-asd/",
+    "local_pdfs": [
+      "kurmashev-2026-cortical-transcriptomics.pdf"
+    ],
+    "has_visible_abstract_heading": true,
+    "issues": []
+  },
+  {
+    "slug": "covid19-acute-abdomen",
+    "status": "WARN",
+    "title": "ОСТРЫЙ ЖИВОТ, КАК НЕСПЕЦИФИЧЕСКОЕ ПРОЯВЛЕНИЕ COVID-19. СИСТЕМАТИЧЕСКИЙ ОБЗОР",
+    "authors": [
+      "Руслан Жанатович Курмашев",
+      "Адина Талаповна Есимова",
+      "Акмарал Ганиевна Сейсембиева",
+      "Умiт Дулаткызы Кабылбек",
+      "Гуфронджон Тулкинович Рахимов",
+      "Фарухджон Раджабович Бойнуров"
+    ],
+    "publication_date": "2020",
+    "journal": "Студенческий вестник",
+    "conference": "",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/covid19-acute-abdomen/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "early-autism-identification",
+    "status": "WARN",
+    "title": "Failure points in the early autism identification pathway for children aged 0-5 years: Why screening is not diagnosis",
+    "authors": [
+      "Ruslan Kurmashev",
+      "Mavile Karaieva"
+    ],
+    "publication_date": "2026/08/14",
+    "journal": "Pediatric Investigation",
+    "conference": "",
+    "doi": "10.1002/ped4.70079",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/early-autism-identification/",
+    "local_pdfs": [
+      "kurmashev-2026-early-autism-identification.pdf"
+    ],
+    "has_visible_abstract_heading": true,
+    "issues": [
+      "citation_title differs from H1"
+    ]
+  },
+  {
+    "slug": "femur-anthropometry",
+    "status": "WARN",
+    "title": "Некоторые антропометрические показатели бедренной кости",
+    "authors": [
+      "С. Н. Романюк",
+      "Р. Ж. Курмашев",
+      "Н. А. Коскосиди"
+    ],
+    "publication_date": "2016/11/17",
+    "journal": "",
+    "conference": "Всероссийский молодёжный форум с международным участием Неделя науки – 2016",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/femur-anthropometry/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "hip-joint-anatomy",
+    "status": "WARN",
+    "title": "НЕКОТОРЫЕ ОСОБЕННОСТИ В СТРОЕНИИ ТАЗОБЕДРЕННОГО СУСТАВА",
+    "authors": [
+      "С. Н. Романюк",
+      "Р. Ж. Курмашев",
+      "Н. А. Коскосиди"
+    ],
+    "publication_date": "2015/10/10",
+    "journal": "",
+    "conference": "Основные проблемы в современной медицине",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/hip-joint-anatomy/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "kidney-transplantation-case",
+    "status": "WARN",
+    "title": "Клинический случай трансплантации почки",
+    "authors": [
+      "Г. М. Хайбуллина",
+      "Р. Ж. Курмашев",
+      "Т. М. Кумарбеков",
+      "З. К. Закиров",
+      "А. М. Утежанова",
+      "А. Е. Бекенова",
+      "А. А. Сатаева",
+      "Г. М. Каратаева",
+      "Г. А. Тойшибекова",
+      "Б. Б. Даулетбаева"
+    ],
+    "publication_date": "2018",
+    "journal": "Вестник КазНМУ",
+    "conference": "",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/kidney-transplantation-case/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "latent-tuberculosis-biomarkers",
+    "status": "WARN",
+    "title": "Прогностические иммунологические биомаркеры диагностики и прогрессирования латентного туберкулеза (мини-обзор)",
+    "authors": [
+      "А. С. Тарабаева",
+      "А. А. Абильбаева",
+      "А. С. Ракишева",
+      "Р. Ж. Курмашев",
+      "К. С. Сарниязова",
+      "А. Я. Абубакиров"
+    ],
+    "publication_date": "2017",
+    "journal": "Вестник КазНМУ",
+    "conference": "",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/latent-tuberculosis-biomarkers/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "mesenteric-lymph-node-portal-vein",
+    "status": "WARN",
+    "title": "Лимфатический узел брыжейки тонкой кишки при пережатии воротной вены",
+    "authors": [
+      "Р. Ж. Курмашев",
+      "Т. А. Амирхан"
+    ],
+    "publication_date": "2017/04/13",
+    "journal": "",
+    "conference": "VIII Российская (итоговая) научно-практическая конференция с международным участием студентов и молодых ученых Авиценна-2017",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/mesenteric-lymph-node-portal-vein/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "pediatric-appendicitis-under-five",
+    "status": "WARN",
+    "title": "КЛИНИКА ОСТРОГО АППЕНДИЦИТА У ДЕТЕЙ ДО 5 ЛЕТ",
+    "authors": [
+      "Р. Ж. Курмашев",
+      "А. А. Курмангали"
+    ],
+    "publication_date": "2018",
+    "journal": "",
+    "conference": "Неделя науки – 2018",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/pediatric-appendicitis-under-five/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "peptic-ulcer-perforation-risk-factors",
+    "status": "WARN",
+    "title": "ФАКТОРЫ РИСКА, КАК ПРОВОКАТОРЫ ПЕРФОРАЦИИ ПРИ ЯЗВЕННОЙ БОЛЕЗНИ ЖЕЛУДКА",
+    "authors": [
+      "Р. Ж. Курмашев",
+      "У. Д. Кабылбек",
+      "Ж. К. Бактыбаев"
+    ],
+    "publication_date": "2018/12/13",
+    "journal": "",
+    "conference": "III Международная морфологическая научно-практическая конкурс-конференция студентов и молодых ученых Морфологические науки - фундаментальная основа медицины",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/peptic-ulcer-perforation-risk-factors/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "piperidine-local-anesthesia",
+    "status": "WARN",
+    "title": "Experimental study of local anesthetic activity of a row new derivatives of piperidin on the model of infiltration anesthesia",
+    "authors": [
+      "D. M. Kadyrova",
+      "G. S. Smagulova",
+      "I. I. Kim",
+      "K. D. Praliev",
+      "V. K. Yu",
+      "E. M. Satbaeva",
+      "R. Zh. Kurmashev"
+    ],
+    "publication_date": "2018/05",
+    "journal": "Pharmacy of Kazakhstan",
+    "conference": "",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/piperidine-local-anesthesia/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "qchat-behavioral-domains",
+    "status": "PASS",
+    "title": "Behavioral Domains Associated with Autism in Toddlers: A Secondary Analysis of the Polish Q-CHAT Dataset",
+    "authors": [
+      "Ruslan Kurmashev"
+    ],
+    "publication_date": "2024/02",
+    "journal": "International Journal of Science and Research",
+    "conference": "",
+    "doi": "10.21275/SR24229081124",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/qchat-behavioral-domains/",
+    "local_pdfs": [
+      "kurmashev-2024-qchat-autism.pdf"
+    ],
+    "has_visible_abstract_heading": true,
+    "issues": []
+  },
+  {
+    "slug": "salivary-rna-autism",
+    "status": "PASS",
+    "title": "Salivary RNA biomarkers for autism assessment in children: clinical promise, validation gaps and practical relevance for developmental disability pathways",
+    "authors": [
+      "Ruslan Kurmashev"
+    ],
+    "publication_date": "2026/09/06",
+    "journal": "International Journal of Developmental Disabilities",
+    "conference": "",
+    "doi": "10.1080/20473869.2026.2726331",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/salivary-rna-autism/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": true,
+    "issues": []
+  },
+  {
+    "slug": "screening-not-diagnosis-conference",
+    "status": "WARN",
+    "title": "SCREENING IS NOT DIAGNOSIS: WHERE EARLY AUTISM IDENTIFICATION FAILS IN THE 0–5 CLINICAL PATHWAY",
+    "authors": [
+      "Ruslan Kurmashev"
+    ],
+    "publication_date": "2026/05",
+    "journal": "",
+    "conference": "LXXX International Multidisciplinary Conference",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/screening-not-diagnosis-conference/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "toe-to-hand-transfer-principles",
+    "status": "WARN",
+    "title": "ПРИНЦИПЫ ТРАНСПЛАНТАЦИИ ПАЛЬЦЕВ СТОПЫ НА КИСТЬ ПРИ ТРАВМАХ И ВРОЖДЕННЫХ ДЕФЕКТАХ",
+    "authors": [
+      "Р. Ж. Курмашев"
+    ],
+    "publication_date": "2017/12/14",
+    "journal": "",
+    "conference": "II Международная морфологическая научно-практическая конкурс-конференция студентов и молодых ученых Морфологические науки - фундаментальная основа медицины",
+    "doi": "",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/toe-to-hand-transfer-principles/",
+    "local_pdfs": [],
+    "has_visible_abstract_heading": false,
+    "issues": [
+      "no visible Abstract heading and no local full-text PDF"
+    ]
+  },
+  {
+    "slug": "transcriptomic-convergence-asd",
+    "status": "PASS",
+    "title": "Transcriptomic Convergence in Autism Spectrum Disorder: Synaptic, Immune-Glial and RNA-Regulatory Axes in the Human Cerebral Cortex",
+    "authors": [
+      "Ruslan Kurmashev"
+    ],
+    "publication_date": "2026/07/09",
+    "journal": "International Journal of Developmental Neuroscience",
+    "conference": "",
+    "doi": "10.1002/jdn.70157",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/transcriptomic-convergence-asd/",
+    "local_pdfs": [
+      "kurmashev-2026-transcriptomic-convergence.pdf"
+    ],
+    "has_visible_abstract_heading": true,
+    "issues": []
+  },
+  {
+    "slug": "transcriptomic-signatures-asd",
+    "status": "PASS",
+    "title": "Transcriptomic Signatures in Autism Spectrum Disorder: Opportunities and Limitations across Brain, Blood and Saliva",
+    "authors": [
+      "Ruslan Kurmashev"
+    ],
+    "publication_date": "2026/05/14",
+    "journal": "American Journal of Pure and Applied Biosciences",
+    "conference": "",
+    "doi": "10.34104/ajpab.026.05210528",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/transcriptomic-signatures-asd/",
+    "local_pdfs": [
+      "kurmashev-2026-transcriptomic-signatures.pdf"
+    ],
+    "has_visible_abstract_heading": true,
+    "issues": []
+  },
+  {
+    "slug": "transfer-learning-autism",
+    "status": "PASS",
+    "title": "Transfer learning from datasets with unshared features for detecting Autism Spectrum Disorder using AutDB",
+    "authors": [
+      "Ruslan Kurmashev",
+      "Adina Yessimova",
+      "Denis Traore",
+      "Olaitan I. Awe"
+    ],
+    "publication_date": "2026/01/14",
+    "journal": "",
+    "conference": "",
+    "doi": "10.5281/zenodo.18250085",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/transfer-learning-autism/",
+    "local_pdfs": [
+      "kurmashev-2026-transfer-learning-autdb.pdf"
+    ],
+    "has_visible_abstract_heading": true,
+    "issues": []
+  },
+  {
+    "slug": "ube3a-dosage-autism",
+    "status": "PASS",
+    "title": "UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Dup15q-Associated Autism Phenotypes",
+    "authors": [
+      "Ruslan Kurmashev"
+    ],
+    "publication_date": "2026/07/16",
+    "journal": "American Journal of Medical Genetics Part B: Neuropsychiatric Genetics",
+    "conference": "",
+    "doi": "10.1002/ajmg.b.70025",
+    "canonical": "https://ruslan-kurmashev.github.io/publications/ube3a-dosage-autism/",
+    "local_pdfs": [
+      "kurmashev-2026-ube3a-dosage.pdf"
+    ],
+    "has_visible_abstract_heading": true,
+    "issues": []
+  }
+]
