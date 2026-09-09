@@ -118,7 +118,7 @@
   },
   {
     "slug": "hip-joint-anatomy",
-    "status": "WARN",
+    "status": "PASS",
     "title": "НЕКОТОРЫЕ ОСОБЕННОСТИ В СТРОЕНИИ ТАЗОБЕДРЕННОГО СУСТАВА",
     "authors": [
       "С. Н. Романюк",
@@ -131,10 +131,8 @@
     "doi": "",
     "canonical": "https://ruslan-kurmashev.github.io/publications/hip-joint-anatomy/",
     "local_pdfs": [],
-    "has_visible_abstract_heading": false,
-    "issues": [
-      "no visible Abstract heading and no local full-text PDF"
-    ]
+    "has_visible_abstract_heading": true,
+    "issues": []
   },
   {
     "slug": "kidney-transplantation-case",

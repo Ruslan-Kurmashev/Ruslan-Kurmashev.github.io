@@ -3,8 +3,8 @@
 Automated structural audit against the core Google Scholar webmaster requirements: one URL per work, bibliographic Highwire meta tags, crawlable HTML, canonical URLs, visible scholarly content, and local PDF linkage where a local full-text file exists.
 
 - Publication pages checked: **21**
-- PASS: **14**
-- WARN: **7**
+- PASS: **15**
+- WARN: **6**
 - FAIL: **0**
 - robots.txt present: **yes**
 - sitemap declared in robots.txt: **yes**
@@ -18,7 +18,7 @@ Automated structural audit against the core Google Scholar webmaster requirement
 | `covid19-acute-abdomen` | WARN | 6 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
 | `early-autism-identification` | PASS | 2 | yes | yes | 1 | yes | — |
 | `femur-anthropometry` | PASS | 3 | yes | no | 0 | yes | — |
-| `hip-joint-anatomy` | WARN | 3 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
+| `hip-joint-anatomy` | PASS | 3 | yes | no | 0 | yes | — |
 | `kidney-transplantation-case` | PASS | 10 | yes | no | 0 | yes | — |
 | `latent-tuberculosis-biomarkers` | PASS | 6 | yes | no | 0 | yes | — |
 | `mesenteric-lymph-node-portal-vein` | WARN | 2 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
