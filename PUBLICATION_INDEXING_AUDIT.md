@@ -3,8 +3,8 @@
 Automated structural audit against the core Google Scholar webmaster requirements: one URL per work, bibliographic Highwire meta tags, crawlable HTML, canonical URLs, visible scholarly content, and local PDF linkage where a local full-text file exists.
 
 - Publication pages checked: **21**
-- PASS: **12**
-- WARN: **9**
+- PASS: **13**
+- WARN: **8**
 - FAIL: **0**
 - robots.txt present: **yes**
 - sitemap declared in robots.txt: **yes**
@@ -27,7 +27,7 @@ Automated structural audit against the core Google Scholar webmaster requirement
 | `piperidine-local-anesthesia` | PASS | 7 | yes | no | 0 | yes | — |
 | `qchat-behavioral-domains` | PASS | 1 | yes | yes | 1 | yes | — |
 | `salivary-rna-autism` | PASS | 1 | yes | yes | 0 | yes | — |
-| `screening-not-diagnosis-conference` | WARN | 1 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
+| `screening-not-diagnosis-conference` | PASS | 1 | yes | no | 0 | yes | — |
 | `toe-to-hand-transfer-principles` | WARN | 1 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
 | `transcriptomic-convergence-asd` | PASS | 1 | yes | yes | 1 | yes | — |
 | `transcriptomic-signatures-asd` | PASS | 1 | yes | yes | 1 | yes | — |
