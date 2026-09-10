@@ -199,7 +199,7 @@
   },
   {
     "slug": "pediatric-appendicitis-under-five",
-    "status": "PASS",
+    "status": "WARN",
     "title": "КЛИНИКА ОСТРОГО АППЕНДИЦИТА У ДЕТЕЙ ДО 5 ЛЕТ",
     "authors": [
       "Р. Ж. Курмашев",
@@ -212,7 +212,9 @@
     "canonical": "https://ruslan-kurmashev.github.io/publications/pediatric-appendicitis-under-five/",
     "local_pdfs": [],
     "has_visible_abstract_heading": true,
-    "issues": []
+    "issues": [
+      "citation_title differs from H1"
+    ]
   },
   {
     "slug": "peptic-ulcer-perforation-risk-factors",

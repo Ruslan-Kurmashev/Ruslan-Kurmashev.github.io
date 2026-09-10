@@ -3,8 +3,8 @@
 Automated structural audit against the core Google Scholar webmaster requirements: one URL per work, bibliographic Highwire meta tags, crawlable HTML, canonical URLs, visible scholarly content, and local PDF linkage where a local full-text file exists.
 
 - Publication pages checked: **21**
-- PASS: **17**
-- WARN: **4**
+- PASS: **16**
+- WARN: **5**
 - FAIL: **0**
 - robots.txt present: **yes**
 - sitemap declared in robots.txt: **yes**
@@ -22,7 +22,7 @@ Automated structural audit against the core Google Scholar webmaster requirement
 | `kidney-transplantation-case` | PASS | 10 | yes | no | 0 | yes | — |
 | `latent-tuberculosis-biomarkers` | PASS | 6 | yes | no | 0 | yes | — |
 | `mesenteric-lymph-node-portal-vein` | PASS | 2 | yes | no | 0 | yes | — |
-| `pediatric-appendicitis-under-five` | PASS | 2 | yes | no | 0 | yes | — |
+| `pediatric-appendicitis-under-five` | WARN | 2 | yes | no | 0 | yes | citation_title differs from H1 |
 | `peptic-ulcer-perforation-risk-factors` | WARN | 3 | yes | no | 0 | no | citation_title differs from H1; no visible Abstract heading and no local full-text PDF |
 | `piperidine-local-anesthesia` | PASS | 7 | yes | no | 0 | yes | — |
 | `qchat-behavioral-domains` | PASS | 1 | yes | yes | 1 | yes | — |
