@@ -28,7 +28,7 @@ Automated structural audit against the core Google Scholar webmaster requirement
 | `qchat-behavioral-domains` | PASS | 1 | yes | yes | 1 | yes | — |
 | `salivary-rna-autism` | PASS | 1 | yes | yes | 0 | yes | — |
 | `screening-not-diagnosis-conference` | PASS | 1 | yes | no | 0 | yes | — |
-| `toe-to-hand-transfer-principles` | WARN | 1 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
+| `toe-to-hand-transfer-principles` | WARN | 1 | yes | no | 0 | no | citation_title differs from H1; no visible Abstract heading and no local full-text PDF |
 | `transcriptomic-convergence-asd` | PASS | 1 | yes | yes | 1 | yes | — |
 | `transcriptomic-signatures-asd` | PASS | 1 | yes | yes | 1 | yes | — |
 | `transfer-learning-autism` | PASS | 4 | no | yes | 1 | yes | — |
