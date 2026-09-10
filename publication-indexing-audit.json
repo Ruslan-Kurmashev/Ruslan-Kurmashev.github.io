@@ -101,7 +101,7 @@
   },
   {
     "slug": "femur-anthropometry",
-    "status": "PASS",
+    "status": "WARN",
     "title": "Некоторые антропометрические показатели бедренной кости",
     "authors": [
       "С. Н. Романюк",
@@ -115,7 +115,9 @@
     "canonical": "https://ruslan-kurmashev.github.io/publications/femur-anthropometry/",
     "local_pdfs": [],
     "has_visible_abstract_heading": true,
-    "issues": []
+    "issues": [
+      "citation_title differs from H1"
+    ]
   },
   {
     "slug": "hip-joint-anatomy",
