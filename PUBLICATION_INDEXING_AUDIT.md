@@ -13,7 +13,7 @@ Automated structural audit against the core Google Scholar webmaster requirement
 | Publication | Status | Authors | Journal/conf | DOI | Local PDF | Abstract | Issues |
 |---|---:|---:|---:|---:|---:|---:|---|
 | `age-moderation-abide` | PASS | 1 | yes | yes | 1 | yes | — |
-| `comparative-duodenum-pancreas-anatomy` | WARN | 4 | yes | no | 0 | no | no visible Abstract heading and no local full-text PDF |
+| `comparative-duodenum-pancreas-anatomy` | WARN | 4 | yes | no | 0 | no | citation_title differs from H1; no visible Abstract heading and no local full-text PDF |
 | `cortical-transcriptomics-asd` | PASS | 1 | yes | yes | 1 | yes | — |
 | `covid19-acute-abdomen` | WARN | 6 | yes | no | 0 | yes | citation_title differs from H1 |
 | `early-autism-identification` | PASS | 2 | yes | yes | 1 | yes | — |
