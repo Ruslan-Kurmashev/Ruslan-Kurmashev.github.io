@@ -163,7 +163,7 @@
   },
   {
     "slug": "latent-tuberculosis-biomarkers",
-    "status": "PASS",
+    "status": "WARN",
     "title": "Прогностические иммунологические биомаркеры диагностики и прогрессирования латентного туберкулеза (мини-обзор)",
     "authors": [
       "А. С. Тарабаева",
@@ -180,7 +180,9 @@
     "canonical": "https://ruslan-kurmashev.github.io/publications/latent-tuberculosis-biomarkers/",
     "local_pdfs": [],
     "has_visible_abstract_heading": true,
-    "issues": []
+    "issues": [
+      "citation_title differs from H1"
+    ]
   },
   {
     "slug": "mesenteric-lymph-node-portal-vein",
