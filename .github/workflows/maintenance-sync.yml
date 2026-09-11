@@ -1,0 +1,74 @@
+name: One-time repository maintenance
+
+on:
+  push:
+    paths:
+      - '.github/workflows/maintenance-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply repository maintenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              Path('index.html'): [
+                  ('11(12):1270–1281', '11(12):1270–1285'),
+              ],
+              Path('projects/abide-neuroanatomy/index.html'): [
+                  ('11(12):1270–1281', '11(12):1270–1285'),
+              ],
+              Path('projects/index.html'): [
+                  ('Status: manuscript accepted and in publisher production.',
+                   'Status: published 30 December 2025 in Saudi Journal of Medical and Pharmaceutical Sciences.'),
+              ],
+          }
+
+          for path, pairs in replacements.items():
+              text = path.read_text(encoding='utf-8')
+              original = text
+              for old, new in pairs:
+                  if old not in text:
+                      raise SystemExit(f'Expected text not found in {path}: {old}')
+                  text = text.replace(old, new)
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  print(f'Updated {path}')
+          PY
+
+          git rm -f \
+            .github/workflows/archive-open-access-pdfs.yml \
+            .github/workflows/enhance-publication-pdf-visibility.yml \
+            .github/workflows/fetch-qchat-pdf.yml \
+            .github/workflows/fetch-ube3a-author-pdf.yml \
+            .github/workflows/fetch-zenodo-preprint-pdf.yml \
+            ALFOLIO_PLAN.md \
+            BACKUP_POINTER.txt \
+            MIGRATION_NOTE.md \
+            migration/README.md \
+            migration/status.txt \
+            .github/workflows/maintenance-sync.yml
+
+      - name: Commit maintenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html projects/index.html projects/abide-neuroanatomy/index.html
+          if git diff --cached --quiet; then
+            echo 'No maintenance changes.'
+            exit 0
+          fi
+          git commit -m 'Clean repository and sync ABIDE publication status'
+          git push
