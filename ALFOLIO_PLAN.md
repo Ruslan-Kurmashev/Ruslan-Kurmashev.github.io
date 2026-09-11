@@ -1,1 +1,0 @@
-Planned migration to al-folio. Preserve existing publication URLs and Google Scholar metadata, then replace the visual layer and content architecture with al-folio conventions.
