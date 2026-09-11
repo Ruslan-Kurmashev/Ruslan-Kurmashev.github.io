@@ -10,43 +10,52 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Audit publication pages
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re, json, html as htmlmod
+          import html as htmlmod
+          import json
+          import os
+          import re
 
           SITE = 'https://ruslan-kurmashev.github.io'
           pubs = Path('publications')
           rows = []
-          details = []
 
           meta_re = re.compile(r'<meta\s+name=["\']([^"\']+)["\']\s+content=["\']([^"\']*)["\']\s*/?>', re.I)
           canonical_re = re.compile(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']\s*/?>', re.I)
           h1_re = re.compile(r'<h1[^>]*>(.*?)</h1>', re.I | re.S)
           script_re = re.compile(r'<script\s+type=["\']application/ld\+json["\']>(.*?)</script>', re.I | re.S)
 
-          def strip_tags(s):
-              return htmlmod.unescape(re.sub(r'<[^>]+>', '', s)).strip()
+          def strip_tags(value):
+              return htmlmod.unescape(re.sub(r'<[^>]+>', '', value)).strip()
+
+          def norm(value):
+              return re.sub(r'\s+', ' ', strip_tags(value)).strip().casefold()
+
+          def title_matches(citation_title, visible_h1):
+              """Allow exact titles and bilingual H1s that contain the original published title."""
+              ct = norm(citation_title)
+              vh = norm(visible_h1)
+              return bool(ct and vh and (ct == vh or ct in vh))
 
           for p in sorted(pubs.glob('*/index.html')):
               slug = p.parent.name
               text = p.read_text(encoding='utf-8')
               head = text.split('</head>', 1)[0] if '</head>' in text else text
               metas = {}
-              for k, v in meta_re.findall(head):
-                  metas.setdefault(k.lower(), []).append(htmlmod.unescape(v))
+              for key, value in meta_re.findall(head):
+                  metas.setdefault(key.lower(), []).append(htmlmod.unescape(value))
 
               canonical_m = canonical_re.search(head)
               canonical = canonical_m.group(1) if canonical_m else ''
@@ -64,19 +73,17 @@ jobs:
               robots = ' '.join(metas.get('robots') or []).lower()
 
               local_pdfs = sorted(p.parent.glob('*.pdf'))
-              local_pdf_sizes = [x.stat().st_size for x in local_pdfs]
-              local_pdf_ok = all(n <= 5 * 1024 * 1024 for n in local_pdf_sizes)
+              local_pdf_ok = all(x.stat().st_size <= 5 * 1024 * 1024 for x in local_pdfs)
 
               pdf_link_ok = True
               pdf_issue = ''
               if pdf_url:
-                  prefix = expected
-                  if not pdf_url.startswith(prefix):
+                  if not pdf_url.startswith(expected):
                       pdf_link_ok = False
                       pdf_issue = 'citation_pdf_url is not in the same article subdirectory'
                   else:
-                      fn = pdf_url.rsplit('/', 1)[-1]
-                      if not (p.parent / fn).exists():
+                      filename = pdf_url.rsplit('/', 1)[-1]
+                      if not (p.parent / filename).exists():
                           pdf_link_ok = False
                           pdf_issue = 'citation_pdf_url points to a missing local file'
               elif local_pdfs:
@@ -103,7 +110,8 @@ jobs:
               if not pubdate: issues.append('missing citation_publication_date')
               if canonical != expected: issues.append('canonical missing or mismatched')
               if not h1: issues.append('missing H1 title')
-              if title and h1 and strip_tags(title).casefold() != h1.casefold(): issues.append('citation_title differs from H1')
+              if title and h1 and not title_matches(title, h1):
+                  issues.append('citation_title is not represented in H1')
               if 'noindex' in robots: issues.append('robots noindex present')
               if not (journal or conference or doi): issues.append('no journal/conference/DOI identifier metadata')
               if not pdf_link_ok: issues.append(pdf_issue)
@@ -118,65 +126,58 @@ jobs:
               required_ok = bool(title and authors and pubdate and canonical == expected and h1 and 'noindex' not in robots)
               status = 'PASS' if required_ok and not issues else ('FAIL' if not required_ok else 'WARN')
               rows.append((slug, status, len(authors), bool(journal or conference), bool(doi), len(local_pdfs), has_abstract, '; '.join(issues)))
-              details.append({
-                  'slug': slug, 'status': status, 'title': title, 'authors': authors,
-                  'publication_date': pubdate, 'journal': journal, 'conference': conference,
-                  'doi': doi, 'canonical': canonical, 'local_pdfs': [x.name for x in local_pdfs],
-                  'has_visible_abstract_heading': has_abstract, 'issues': issues,
-              })
 
           sitemap = Path('sitemap.xml').read_text(encoding='utf-8') if Path('sitemap.xml').exists() else ''
           sitemap_missing = []
           for slug, *_ in rows:
-              u = f'{SITE}/publications/{slug}/'
-              if u not in sitemap:
-                  sitemap_missing.append(u)
+              url = f'{SITE}/publications/{slug}/'
+              if url not in sitemap:
+                  sitemap_missing.append(url)
 
           robots_exists = Path('robots.txt').exists()
           robots_text = Path('robots.txt').read_text(encoding='utf-8') if robots_exists else ''
           sitemap_declared = f'Sitemap: {SITE}/sitemap.xml' in robots_text
 
-          report = []
-          report.append('# Publication indexing audit')
-          report.append('')
-          report.append('Automated structural audit against the core Google Scholar webmaster requirements: one URL per work, bibliographic Highwire meta tags, crawlable HTML, canonical URLs, visible scholarly content, and local PDF linkage where a local full-text file exists.')
-          report.append('')
-          report.append(f'- Publication pages checked: **{len(rows)}**')
-          report.append(f'- PASS: **{sum(1 for r in rows if r[1] == "PASS")}**')
-          report.append(f'- WARN: **{sum(1 for r in rows if r[1] == "WARN")}**')
-          report.append(f'- FAIL: **{sum(1 for r in rows if r[1] == "FAIL")}**')
-          report.append(f'- robots.txt present: **{"yes" if robots_exists else "no"}**')
-          report.append(f'- sitemap declared in robots.txt: **{"yes" if sitemap_declared else "no"}**')
-          report.append(f'- Publication URLs missing from sitemap: **{len(sitemap_missing)}**')
-          report.append('')
-          report.append('| Publication | Status | Authors | Journal/conf | DOI | Local PDF | Abstract | Issues |')
-          report.append('|---|---:|---:|---:|---:|---:|---:|---|')
-          for slug, status, na, jc, doi, npdf, abstract, issues in rows:
-              report.append(f'| `{slug}` | {status} | {na} | {"yes" if jc else "no"} | {"yes" if doi else "no"} | {npdf} | {"yes" if abstract else "no"} | {issues or "—"} |')
+          pass_count = sum(1 for row in rows if row[1] == 'PASS')
+          warn_count = sum(1 for row in rows if row[1] == 'WARN')
+          fail_count = sum(1 for row in rows if row[1] == 'FAIL')
+
+          report = [
+              '# Publication indexing audit',
+              '',
+              'Read-only structural audit of publication pages. Bilingual display titles are accepted when the original published citation title is preserved within the visible H1.',
+              '',
+              f'- Publication pages checked: **{len(rows)}**',
+              f'- PASS: **{pass_count}**',
+              f'- WARN: **{warn_count}**',
+              f'- FAIL: **{fail_count}**',
+              f'- robots.txt present: **{"yes" if robots_exists else "no"}**',
+              f'- sitemap declared in robots.txt: **{"yes" if sitemap_declared else "no"}**',
+              f'- Publication URLs missing from sitemap: **{len(sitemap_missing)}**',
+              '',
+              '| Publication | Status | Authors | Journal/conf | DOI | Local PDF | Abstract | Issues |',
+              '|---|---:|---:|---:|---:|---:|---:|---|',
+          ]
+          for slug, status, na, jc, has_doi, npdf, abstract, issues in rows:
+              report.append(f'| `{slug}` | {status} | {na} | {"yes" if jc else "no"} | {"yes" if has_doi else "no"} | {npdf} | {"yes" if abstract else "no"} | {issues or "—"} |')
+
           if sitemap_missing:
-              report.append('')
-              report.append('## Missing from sitemap')
-              report.extend(f'- {u}' for u in sitemap_missing)
-          report.append('')
-          report.append('## Interpretation')
-          report.append('A PASS means the page satisfies this structural audit. It does not guarantee inclusion or ranking in Google Scholar. A WARN usually means the minimum bibliographic tags are present but discoverability can be improved. A FAIL means at least one core structural requirement is missing.')
-          report.append('')
-          report.append('Generated automatically by `.github/workflows/audit-scholar-indexing.yml`.')
+              report += ['', '## Missing from sitemap']
+              report.extend(f'- {url}' for url in sitemap_missing)
 
-          Path('PUBLICATION_INDEXING_AUDIT.md').write_text('\n'.join(report) + '\n', encoding='utf-8')
-          Path('publication-indexing-audit.json').write_text(json.dumps(details, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          report += [
+              '',
+              '## Interpretation',
+              'PASS means the page satisfies this structural audit. WARN means the minimum bibliographic structure is present but discoverability can still be improved. FAIL means a core structural requirement is missing. This audit does not submit pages to Google Scholar and does not guarantee indexing.',
+          ]
+
+          output = '\n'.join(report) + '\n'
+          print(output)
+          summary = os.environ.get('GITHUB_STEP_SUMMARY')
+          if summary:
+              with open(summary, 'a', encoding='utf-8') as fh:
+                  fh.write(output)
+
+          if fail_count:
+              raise SystemExit(1)
           PY
-
-      - name: Commit audit report
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add PUBLICATION_INDEXING_AUDIT.md publication-indexing-audit.json
-          if git diff --cached --quiet; then
-            echo 'Audit report unchanged.'
-            exit 0
-          fi
-          git commit -m 'Update publication indexing audit'
-          git push
