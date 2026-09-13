@@ -1,0 +1,67 @@
+name: Refresh navigation cache
+
+on:
+  push:
+    paths:
+      - '.github/workflows/refresh-navigation-cache.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bust cached navigation script across HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          version = '20260913-4'
+          changed = []
+          pattern = re.compile(r'/assets/js/main\.js(?:\?[^"\']*)?')
+
+          for path in Path('.').rglob('*.html'):
+              text = path.read_text(encoding='utf-8')
+              new = pattern.sub(f'/assets/js/main.js?v={version}', text)
+              # Extra defensive cleanup: remove any hard-coded Research navigation link.
+              new = re.sub(r'\s*<a(?:\s+aria-current="page")?\s+href="/research/">research</a>', '', new)
+              new = re.sub(r'\s*<a\s+href="/research/">research</a>', '', new)
+              if new != text:
+                  path.write_text(new, encoding='utf-8')
+                  changed.append(str(path))
+
+          print(f'Updated {len(changed)} HTML files')
+          for p in changed:
+              print(p)
+          PY
+
+      - name: Verify Research navigation is gone
+        run: |
+          if grep -RIn --include='*.html' 'href="/research/"' .; then
+            echo 'Found stale /research/ links in HTML.'
+            exit 1
+          fi
+          if grep -n "\['research', '/research/'\]" assets/js/main.js; then
+            echo 'Found stale Research item in main.js.'
+            exit 1
+          fi
+
+      - name: Commit refreshed asset references and remove this one-time workflow
+        run: |
+          rm .github/workflows/refresh-navigation-cache.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Refresh navigation asset and remove stale Research links'
+          git pull --rebase origin main
+          git push origin HEAD:main
