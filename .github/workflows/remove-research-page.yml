@@ -1,0 +1,82 @@
+name: Remove Research page
+
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-research-page.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove Research page and all internal links
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          research_page = Path('research/index.html')
+
+          for path in Path('.').rglob('*.html'):
+              if path == research_page:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              original = text
+
+              # Handle the 404-page sentence cleanly before removing generic links.
+              text = text.replace(
+                  'You can also continue to <a href="/research/">research</a>, <a href="/publications/">publications</a>, <a href="/projects/">projects</a> or <a href="/contact/">contact</a>.',
+                  'You can also continue to <a href="/publications/">publications</a>, <a href="/projects/">projects</a> or <a href="/contact/">contact</a>.'
+              )
+
+              # Remove every remaining internal anchor that points to /research/.
+              text = re.sub(r'<a\b[^>]*href="/research/"[^>]*>.*?</a>', '', text, flags=re.S)
+
+              # Clean common separators/empty containers left by removing a link.
+              text = text.replace('<p class="section-more"></p>', '')
+              text = text.replace('<p class="meta"> · ', '<p class="meta">')
+              text = text.replace(' ·  · ', ' · ')
+              text = text.replace('> · </p>', '></p>')
+              text = text.replace('> ·  </p>', '></p>')
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  print(f'updated {path}')
+
+          sitemap = Path('sitemap.xml')
+          sitemap_text = sitemap.read_text(encoding='utf-8')
+          sitemap_text = '\n'.join(
+              line for line in sitemap_text.splitlines()
+              if 'https://ruslan-kurmashev.github.io/research/' not in line
+          ) + '\n'
+          sitemap.write_text(sitemap_text, encoding='utf-8')
+
+          if research_page.exists():
+              research_page.unlink()
+
+          leftovers = []
+          for path in list(Path('.').rglob('*.html')) + [Path('sitemap.xml')]:
+              if path.exists() and '/research/' in path.read_text(encoding='utf-8'):
+                  leftovers.append(str(path))
+          if leftovers:
+              raise SystemExit('Remaining /research/ references: ' + ', '.join(leftovers))
+          PY
+
+      - name: Commit cleanup and remove this one-time workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/remove-research-page.yml
+          git add -A
+          git commit -m "Remove Research page and all internal links"
+          git push
