@@ -4,7 +4,6 @@ const toggle = document.querySelector('.menu-toggle');
 if (nav) {
   const items = [
     ['about', '/'],
-    ['research', '/research/'],
     ['publications', '/publications/'],
     ['projects', '/projects/'],
     ['experience', '/experience/'],
