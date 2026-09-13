@@ -1,23 +1,9 @@
 const nav = document.querySelector('.site-nav');
 const toggle = document.querySelector('.menu-toggle');
 
+// Defensive cleanup for any stale cached markup that still contains the removed Research page.
 if (nav) {
-  const items = [
-    ['about', '/'],
-    ['publications', '/publications/'],
-    ['projects', '/projects/'],
-    ['experience', '/experience/'],
-    ['service', '/academic-service/'],
-    ['talks', '/talks/'],
-    ['cv', '/cv/'],
-    ['contact', '/contact/']
-  ];
-
-  const path = window.location.pathname;
-  nav.innerHTML = items.map(([label, href]) => {
-    const active = href === '/' ? path === '/' : path.startsWith(href);
-    return `<a ${active ? 'aria-current="page"' : ''} href="${href}">${label}</a>`;
-  }).join('');
+  nav.querySelectorAll('a[href="/research/"], a[href="/research"]').forEach(link => link.remove());
 }
 
 if (toggle && nav) {
