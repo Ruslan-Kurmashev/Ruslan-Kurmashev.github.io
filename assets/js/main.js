@@ -30,3 +30,5 @@ function appendResearchGate(container, label = 'ResearchGate') {
 
 appendResearchGate(document.querySelector('.footer-links'));
 document.querySelectorAll('.social-links').forEach(group => appendResearchGate(group));
+
+// Navigation asset version: 2026-09-13-4
