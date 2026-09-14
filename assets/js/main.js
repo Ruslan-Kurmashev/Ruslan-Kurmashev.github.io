@@ -44,11 +44,15 @@ publicationThumbStyle.textContent = `
   .pub-item-with-evidence { grid-template-columns: 220px minmax(0, 1fr); }
   .pub-item-with-evidence .pub-thumb { width: 220px; height: 118px; }
   .pub-item-with-evidence .pub-thumb img { object-fit: contain; object-position: center; }
+  .pub-item-with-plot { grid-template-columns: 220px minmax(0, 1fr); }
+  .pub-item-with-plot .pub-thumb { width: 220px; height: 181px; }
+  .pub-item-with-plot .pub-thumb img { object-fit: contain; object-position: center; }
   @media (max-width: 640px) {
-    .pub-item-with-thumb, .pub-item-with-cover, .pub-item-with-evidence { grid-template-columns: 1fr; gap: 12px; }
+    .pub-item-with-thumb, .pub-item-with-cover, .pub-item-with-evidence, .pub-item-with-plot { grid-template-columns: 1fr; gap: 12px; }
     .pub-thumb { width: min(260px, 100%); height: auto; aspect-ratio: 1.31; }
     .pub-item-with-cover .pub-thumb { width: 120px; height: 158px; aspect-ratio: auto; }
     .pub-item-with-evidence .pub-thumb { width: min(260px, 100%); height: auto; aspect-ratio: 1.87; }
+    .pub-item-with-plot .pub-thumb { width: min(260px, 100%); height: auto; aspect-ratio: 1.196; }
   }
 `;
 document.head.appendChild(publicationThumbStyle);
@@ -76,6 +80,7 @@ function addPublicationThumbnail(href, src, alt, variant = '') {
     article.classList.add('pub-item-with-thumb');
     if (variant === 'cover') article.classList.add('pub-item-with-cover');
     if (variant === 'evidence') article.classList.add('pub-item-with-evidence');
+    if (variant === 'plot') article.classList.add('pub-item-with-plot');
     article.append(thumb, copy);
   });
 }
@@ -94,4 +99,11 @@ addPublicationThumbnail(
   'evidence'
 );
 
-// Navigation asset version: 2026-09-14-4
+addPublicationThumbnail(
+  '/publications/age-moderation-abide/',
+  '/assets/img/publications/age-moderation-abide-social-age.jpg',
+  'Social by age interaction in bilateral caudate volume with observed age distribution',
+  'plot'
+);
+
+// Navigation asset version: 2026-09-14-5
