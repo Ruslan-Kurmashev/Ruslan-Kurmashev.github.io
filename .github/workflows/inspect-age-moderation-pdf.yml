@@ -1,0 +1,21 @@
+name: Inspect age moderation PDF images
+
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-age-moderation-pdf.yml'
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect embedded images
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v pdfimages || (sudo apt-get update && sudo apt-get install -y poppler-utils)
+          pdfinfo publications/age-moderation-abide/kurmashev-2025-age-moderation-abide.pdf | head -30
+          echo '--- IMAGES ---'
+          pdfimages -list publications/age-moderation-abide/kurmashev-2025-age-moderation-abide.pdf
