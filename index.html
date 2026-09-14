@@ -28,6 +28,16 @@
   <meta name="twitter:image:alt" content="Ruslan Kurmashev, MD — Computational Biology Researcher">
 
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <style>
+    .pub-item-with-thumb { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 22px; align-items: start; }
+    .pub-thumb { display: block; width: 220px; height: 168px; overflow: hidden; border: 1px solid #e4e6e8; background: #fff; }
+    .pub-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+    .pub-copy { min-width: 0; }
+    @media (max-width: 640px) {
+      .pub-item-with-thumb { grid-template-columns: 1fr; gap: 12px; }
+      .pub-thumb { width: min(260px, 100%); height: auto; aspect-ratio: 1.31; }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -109,12 +119,17 @@
     <section class="home-section">
       <h2>Selected Publications</h2>
       <div class="publication-list">
-        <article class="pub-item">
-          <div class="pub-type">Review article · 2026</div>
-          <h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Autism Phenotypes</a></h3>
-          <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
-          <p class="pub-venue"><em>American Journal of Medical Genetics Part B: Neuropsychiatric Genetics</em>, 2026</p>
-          <div class="pub-links"><a href="/publications/ube3a-dosage-autism/">Details</a><a href="https://doi.org/10.1002/ajmg.b.70025">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42464451/">PubMed</a><a href="/publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf">PDF</a></div>
+        <article class="pub-item pub-item-with-thumb">
+          <a class="pub-thumb" href="/publications/ube3a-dosage-autism/" aria-label="Open UBE3A publication details">
+            <img src="https://www.preprints.org/frontend/picture/ms_xml/manuscript/d6190c0bd2e1f601472bacafb2caaef9/preprints-213694-g001.png" alt="UBE3A dosage imbalance framework" loading="lazy">
+          </a>
+          <div class="pub-copy">
+            <div class="pub-type">Review article · 2026</div>
+            <h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Autism Phenotypes</a></h3>
+            <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
+            <p class="pub-venue"><em>American Journal of Medical Genetics Part B: Neuropsychiatric Genetics</em>, 2026</p>
+            <div class="pub-links"><a href="/publications/ube3a-dosage-autism/">Details</a><a href="https://doi.org/10.1002/ajmg.b.70025">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42464451/">PubMed</a><a href="/publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf">PDF</a></div>
+          </div>
         </article>
 
         <article class="pub-item">
