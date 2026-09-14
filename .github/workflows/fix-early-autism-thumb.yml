@@ -1,0 +1,36 @@
+name: Fix early autism publication thumbnail
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-early-autism-thumb.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-thumbnail:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download original published graphical abstract
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 --retry-delay 2 \
+            'https://pmc.ncbi.nlm.nih.gov/articles/PMC13475711/bin/PED4-9999-0-g001.jpg' \
+            -o assets/img/publications/early-autism-identification-pathway.jpg
+          file assets/img/publications/early-autism-identification-pathway.jpg
+          test -s assets/img/publications/early-autism-identification-pathway.jpg
+
+      - name: Remove one-time workflow and commit
+        shell: bash
+        run: |
+          rm .github/workflows/fix-early-autism-thumb.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/img/publications/early-autism-identification-pathway.jpg .github/workflows/fix-early-autism-thumb.yml
+          git commit -m 'Use original high-quality early autism graphical abstract'
+          git push
