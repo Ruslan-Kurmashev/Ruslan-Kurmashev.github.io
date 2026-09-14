@@ -19,9 +19,26 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 3 --retry-delay 2 \
-            'https://pmc.ncbi.nlm.nih.gov/articles/PMC13475711/bin/PED4-9999-0-g001.jpg' \
-            -o assets/img/publications/early-autism-identification-pathway.jpg
+          python - <<'PY'
+          import re
+          import urllib.request
+          import urllib.parse
+          from pathlib import Path
+
+          page = 'https://pmc.ncbi.nlm.nih.gov/articles/PMC13475711/'
+          html = urllib.request.urlopen(page, timeout=30).read().decode('utf-8', 'ignore')
+          matches = re.findall(r'''(?:src|href)=["']([^"']*PED4-9999-0-g001\.jpg[^"']*)["']''', html, flags=re.I)
+          if not matches:
+              raise SystemExit('Could not locate original graphical abstract URL in PMC page')
+          url = urllib.parse.urljoin(page, matches[0])
+          print('Downloading:', url)
+          data = urllib.request.urlopen(url, timeout=30).read()
+          if not data.startswith(b'\xff\xd8\xff'):
+              raise SystemExit('Downloaded file is not a JPEG')
+          out = Path('assets/img/publications/early-autism-identification-pathway.jpg')
+          out.write_bytes(data)
+          print('Bytes:', len(data))
+          PY
           file assets/img/publications/early-autism-identification-pathway.jpg
           test -s assets/img/publications/early-autism-identification-pathway.jpg
 
