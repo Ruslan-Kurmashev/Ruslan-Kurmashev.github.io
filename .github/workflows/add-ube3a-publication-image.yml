@@ -1,4 +1,4 @@
-name: Add UBE3A publication figure
+name: Apply UBE3A publication thumbnail
 
 on:
   push:
@@ -10,27 +10,22 @@ permissions:
   contents: write
 
 jobs:
-  add-ube3a-figure:
+  update-homepage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Add UBE3A figure and publication layout
+      - name: Add thumbnail beside UBE3A publication
         shell: bash
         run: |
-          mkdir -p assets/img/publications
-          cat > /tmp/ube3a.b64 <<'B64'
-          /9j/4AAQSkZJRgABAQAAAQABAAD/2wBD...TRUNCATED_PLACEHOLDER...
-          B64
-          base64 -d /tmp/ube3a.b64 > assets/img/publications/ube3a-dosage-autism.jpg
-
           python - <<'PY'
           from pathlib import Path
 
-          home = Path('index.html')
-          s = home.read_text()
+          path = Path('index.html')
+          s = path.read_text(encoding='utf-8')
+
           old = '''        <article class="pub-item">
           <div class="pub-type">Review article · 2026</div>
           <h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Autism Phenotypes</a></h3>
@@ -38,78 +33,40 @@ jobs:
           <p class="pub-venue"><em>American Journal of Medical Genetics Part B: Neuropsychiatric Genetics</em>, 2026</p>
           <div class="pub-links"><a href="/publications/ube3a-dosage-autism/">Details</a><a href="https://doi.org/10.1002/ajmg.b.70025">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42464451/">PubMed</a><a href="/publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf">PDF</a></div>
         </article>'''
-          new = '''        <article class="pub-item pub-item-visual">
-          <a class="pub-figure" href="/publications/ube3a-dosage-autism/" aria-label="Open UBE3A publication details">
-            <img src="/assets/img/publications/ube3a-dosage-autism.jpg" alt="Figure from the UBE3A dosage review comparing loss of maternal UBE3A with normal neuronal UBE3A dosage" width="600" height="458" loading="lazy">
+
+          new = '''        <article class="pub-item pub-item-with-thumb">
+          <a class="pub-thumb" href="/publications/ube3a-dosage-autism/" aria-label="Open UBE3A publication details">
+            <img src="https://www.preprints.org/frontend/picture/ms_xml/manuscript/d6190c0bd2e1f601472bacafb2caaef9/preprints-213694-g001.png" alt="UBE3A dosage imbalance framework" loading="lazy">
           </a>
           <div class="pub-copy">
             <div class="pub-type">Review article · 2026</div>
-            <h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Dup15q-Associated Autism Phenotypes</a></h3>
+            <h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Autism Phenotypes</a></h3>
             <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
             <p class="pub-venue"><em>American Journal of Medical Genetics Part B: Neuropsychiatric Genetics</em>, 2026</p>
             <div class="pub-links"><a href="/publications/ube3a-dosage-autism/">Details</a><a href="https://doi.org/10.1002/ajmg.b.70025">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42464451/">PubMed</a><a href="/publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf">PDF</a></div>
           </div>
         </article>'''
+
           if old not in s:
-              raise SystemExit('Home UBE3A block not found')
-          home.write_text(s.replace(old, new, 1))
+              raise SystemExit('UBE3A publication block not found; no changes made')
+          s = s.replace(old, new, 1)
 
-          pubs = Path('publications/index.html')
-          s = pubs.read_text()
-          old = '''<article class="pub-item"><div class="pub-type">Review article</div><h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Dup15q-Associated Autism Phenotypes</a></h3><p class="pub-authors"><strong>Ruslan Kurmashev</strong></p><p class="pub-venue"><em>American Journal of Medical Genetics Part B: Neuropsychiatric Genetics</em> · Published online 16 Jul 2026</p><div class="pub-links"><a href="/publications/ube3a-dosage-autism/">Details</a><a href="https://doi.org/10.1002/ajmg.b.70025">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42464451/">PubMed</a><a href="/publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf">PDF</a></div></article>'''
-          new = '''<article class="pub-item pub-item-visual"><a class="pub-figure" href="/publications/ube3a-dosage-autism/" aria-label="Open UBE3A publication details"><img src="/assets/img/publications/ube3a-dosage-autism.jpg" alt="Figure from the UBE3A dosage review comparing loss of maternal UBE3A with normal neuronal UBE3A dosage" width="600" height="458" loading="lazy"></a><div class="pub-copy"><div class="pub-type">Review article</div><h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Dup15q-Associated Autism Phenotypes</a></h3><p class="pub-authors"><strong>Ruslan Kurmashev</strong></p><p class="pub-venue"><em>American Journal of Medical Genetics Part B: Neuropsychiatric Genetics</em> · Published online 16 Jul 2026</p><div class="pub-links"><a href="/publications/ube3a-dosage-autism/">Details</a><a href="https://doi.org/10.1002/ajmg.b.70025">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42464451/">PubMed</a><a href="/publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf">PDF</a></div></div></article>'''
-          if old not in s:
-              raise SystemExit('Publications UBE3A block not found')
-          pubs.write_text(s.replace(old, new, 1))
-
-          css = Path('assets/css/styles.css')
-          s = css.read_text()
-          marker = '/* Publication figures */'
-          if marker not in s:
-              s += '''
-
-/* Publication figures */
-.pub-item-visual {
-  display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
-  gap: 22px;
-  align-items: start;
-}
-.pub-figure {
-  display: block;
-  width: 190px;
-  margin-top: .1rem;
-  border: 1px solid var(--border);
-  background: #fff;
-  overflow: hidden;
-}
-.pub-figure:hover {
-  border-color: #c6ccd1;
-  text-decoration: none;
-}
-.pub-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.pub-copy {
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .pub-item-visual {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .pub-figure {
-    width: min(240px, 100%);
-  }
-}
+          css = '''
+  <style>
+    .pub-item-with-thumb{display:grid;grid-template-columns:220px minmax(0,1fr);gap:22px;align-items:start}
+    .pub-thumb{display:block;width:220px;height:168px;overflow:hidden;border:1px solid #e4e6e8;background:#fff}
+    .pub-thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:left top}
+    .pub-copy{min-width:0}
+    @media(max-width:640px){.pub-item-with-thumb{grid-template-columns:1fr;gap:12px}.pub-thumb{width:min(260px,100%);height:auto;aspect-ratio:1.31}.pub-thumb img{height:100%}}
+  </style>
 '''
-              css.write_text(s)
+          s = s.replace('</head>', css + '</head>', 1)
+          path.write_text(s, encoding='utf-8')
           PY
 
+          rm -f .github/workflows/add-ube3a-publication-image.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/img/publications/ube3a-dosage-autism.jpg index.html publications/index.html assets/css/styles.css
-          git commit -m "Add UBE3A publication figure" || exit 0
+          git add -A
+          git commit -m "Add UBE3A thumbnail to selected publications"
           git push
