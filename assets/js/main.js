@@ -87,4 +87,11 @@ addPublicationThumbnail(
   'evidence'
 );
 
-// Navigation asset version: 2026-09-14-3
+addPublicationThumbnail(
+  '/publications/early-autism-identification/',
+  '/assets/img/publications/early-autism-identification-pathway.jpg',
+  'Early autism identification pathway from developmental concern to needs-based support',
+  'evidence'
+);
+
+// Navigation asset version: 2026-09-14-4
