@@ -82,9 +82,9 @@ function addPublicationThumbnail(href, src, alt, variant = '') {
 
 addPublicationThumbnail(
   '/publications/transcriptomic-convergence-asd/',
-  '/assets/img/publications/transcriptomic-convergence-evidence-map.jpg',
-  'Semi-quantitative evidence map of the included human post-mortem ASD cortical transcriptomic literature',
+  '/assets/img/publications/transcriptomic-convergence-evidence-map-v2.jpg',
+  'Evidence profile and study strength summary for the transcriptomic convergence review',
   'evidence'
 );
 
-// Navigation asset version: 2026-09-14-2
+// Navigation asset version: 2026-09-14-3
