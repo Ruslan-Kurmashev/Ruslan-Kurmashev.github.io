@@ -41,15 +41,19 @@ publicationThumbStyle.textContent = `
   .pub-item-with-cover { grid-template-columns: 120px minmax(0, 1fr); }
   .pub-item-with-cover .pub-thumb { width: 120px; height: 158px; }
   .pub-item-with-cover .pub-thumb img { object-fit: contain; object-position: center top; }
+  .pub-item-with-evidence { grid-template-columns: 220px minmax(0, 1fr); }
+  .pub-item-with-evidence .pub-thumb { width: 220px; height: 118px; }
+  .pub-item-with-evidence .pub-thumb img { object-fit: contain; object-position: center; }
   @media (max-width: 640px) {
-    .pub-item-with-thumb, .pub-item-with-cover { grid-template-columns: 1fr; gap: 12px; }
+    .pub-item-with-thumb, .pub-item-with-cover, .pub-item-with-evidence { grid-template-columns: 1fr; gap: 12px; }
     .pub-thumb { width: min(260px, 100%); height: auto; aspect-ratio: 1.31; }
     .pub-item-with-cover .pub-thumb { width: 120px; height: 158px; aspect-ratio: auto; }
+    .pub-item-with-evidence .pub-thumb { width: min(260px, 100%); height: auto; aspect-ratio: 1.87; }
   }
 `;
 document.head.appendChild(publicationThumbStyle);
 
-function addPublicationThumbnail(href, src, alt, cover = false) {
+function addPublicationThumbnail(href, src, alt, variant = '') {
   document.querySelectorAll(`.publication-list .pub-title a[href="${href}"]`).forEach(titleLink => {
     const article = titleLink.closest('.pub-item');
     if (!article || article.querySelector('.pub-thumb')) return;
@@ -70,16 +74,17 @@ function addPublicationThumbnail(href, src, alt, cover = false) {
     thumb.appendChild(img);
 
     article.classList.add('pub-item-with-thumb');
-    if (cover) article.classList.add('pub-item-with-cover');
+    if (variant === 'cover') article.classList.add('pub-item-with-cover');
+    if (variant === 'evidence') article.classList.add('pub-item-with-evidence');
     article.append(thumb, copy);
   });
 }
 
 addPublicationThumbnail(
   '/publications/transcriptomic-convergence-asd/',
-  '/assets/img/publications/international-journal-developmental-neuroscience-cover.png',
-  'International Journal of Developmental Neuroscience journal cover',
-  true
+  '/assets/img/publications/transcriptomic-convergence-evidence-map.jpg',
+  'Semi-quantitative evidence map of the included human post-mortem ASD cortical transcriptomic literature',
+  'evidence'
 );
 
-// Navigation asset version: 2026-09-14-1
+// Navigation asset version: 2026-09-14-2
