@@ -1,0 +1,134 @@
+.pub-item-with-thumb {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.pub-thumb {
+  display: block;
+  width: 220px;
+  height: 168px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.pub-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.pub-copy { min-width: 0; }
+
+.pub-item-with-evidence .pub-thumb {
+  height: 118px;
+}
+
+.pub-item-with-evidence .pub-thumb img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.pub-item-with-plot .pub-thumb {
+  height: 181px;
+}
+
+.pub-item-with-plot .pub-thumb img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.publication-index .page-hero p {
+  max-width: 780px;
+}
+
+.publication-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 1.15rem;
+  font-size: .84rem;
+}
+
+.publication-nav a {
+  color: var(--theme);
+  font-weight: 500;
+}
+
+.publication-year {
+  scroll-margin-top: 86px;
+}
+
+.publication-year + .publication-year {
+  margin-top: 2.5rem;
+}
+
+.publication-year > h2 {
+  margin: 0 0 .8rem;
+  font-size: 1.28rem;
+}
+
+.publication-index .publication-list {
+  margin-top: 0;
+}
+
+.publication-index .pub-item {
+  padding: .9rem 0;
+}
+
+.publication-index .pub-links {
+  gap: 11px;
+  margin-top: .42rem;
+}
+
+.publication-index .pub-links a {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+.publication-index .pub-links a:hover {
+  color: var(--theme-dark);
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.publication-record-note {
+  max-width: 780px;
+  margin: 0 0 1.6rem;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+@media (max-width: 640px) {
+  .pub-item-with-thumb,
+  .pub-item-with-evidence,
+  .pub-item-with-plot {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pub-thumb {
+    width: min(260px, 100%);
+    height: auto;
+    aspect-ratio: 1.31;
+  }
+
+  .pub-item-with-evidence .pub-thumb {
+    width: min(260px, 100%);
+    height: auto;
+    aspect-ratio: 1.87;
+  }
+
+  .pub-item-with-plot .pub-thumb {
+    width: min(260px, 100%);
+    height: auto;
+    aspect-ratio: 1.196;
+  }
+}
