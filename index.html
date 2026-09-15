@@ -3,29 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ruslan Kurmashev | Computational Biology & Autism Research</title>
-  <meta name="description" content="Personal academic website of Ruslan Kurmashev, MD, a computational biology researcher working in autism, neurodevelopment, biomedical data and AI for healthcare.">
+  <title>Ruslan Kurmashev, MD | Autism, Neurodevelopment & Computational Biology</title>
+  <meta name="description" content="Computational and translational research on heterogeneity in autism and neurodevelopment, spanning biomedical AI, transcriptomics, neurogenetics, neuroimaging and early identification.">
   <meta name="google-site-verification" content="Fg31SEDETEt1ZGcsPOeARKSd082IzBStMtdr8X32qL8" />
   <link rel="canonical" href="https://ruslan-kurmashev.github.io/">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 
   <meta property="og:site_name" content="Ruslan Kurmashev">
-  <meta property="og:title" content="Ruslan Kurmashev, MD | Computational Biology & Autism Research">
-  <meta property="og:description" content="Research in autism, neurodevelopment, computational biology, neuroimaging, transcriptomics and biomedical AI.">
+  <meta property="og:title" content="Ruslan Kurmashev, MD | Autism, Neurodevelopment & Computational Biology">
+  <meta property="og:description" content="Computational and translational research on heterogeneity in autism and neurodevelopment.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://ruslan-kurmashev.github.io/">
   <meta property="og:image" content="https://ruslan-kurmashev.github.io/assets/img/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Ruslan Kurmashev, MD — Computational Biology Researcher; Autism, Neurodevelopment and Biomedical AI">
+  <meta property="og:image:alt" content="Ruslan Kurmashev, MD - Computational Biology Researcher; Autism, Neurodevelopment and Biomedical AI">
   <meta property="profile:first_name" content="Ruslan">
   <meta property="profile:last_name" content="Kurmashev">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ruslan Kurmashev, MD | Computational Biology & Autism Research">
-  <meta name="twitter:description" content="Research in autism, neurodevelopment, computational biology, neuroimaging, transcriptomics and biomedical AI.">
+  <meta name="twitter:title" content="Ruslan Kurmashev, MD | Autism, Neurodevelopment & Computational Biology">
+  <meta name="twitter:description" content="Computational and translational research on heterogeneity in autism and neurodevelopment.">
   <meta name="twitter:image" content="https://ruslan-kurmashev.github.io/assets/img/og-card.png">
-  <meta name="twitter:image:alt" content="Ruslan Kurmashev, MD — Computational Biology Researcher">
+  <meta name="twitter:image:alt" content="Ruslan Kurmashev, MD - Computational Biology Researcher">
 
   <link rel="stylesheet" href="/assets/css/styles.css">
   <style>
@@ -33,6 +33,17 @@
     .pub-thumb { display: block; width: 220px; height: 168px; overflow: hidden; border: 1px solid #e4e6e8; background: #fff; }
     .pub-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
     .pub-copy { min-width: 0; }
+    .research-programme-intro { max-width: 760px; color: var(--muted); margin-bottom: 1.35rem; }
+    .research-pillar { padding-top: .85rem; border-top: 2px solid var(--theme); }
+    .research-pillar h3 { margin: 0 0 .4rem; color: var(--theme-dark); font-weight: 500; }
+    .research-pillar p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .featured-research .card { padding-top: .9rem; border-top: 1px solid var(--border); }
+    .featured-research .card h3 { margin-bottom: .4rem; color: #222; }
+    .featured-research .card p { margin-bottom: .6rem; }
+    .featured-research .meta { display: block; margin-bottom: .55rem; line-height: 1.45; }
+    .featured-research .card-link + .card-link { margin-left: .7rem; }
+    .home .hero-actions { margin-top: 1.15rem; }
+    .home .social-links { margin-top: .9rem; }
     @media (max-width: 640px) {
       .pub-item-with-thumb { grid-template-columns: 1fr; gap: 12px; }
       .pub-thumb { width: min(260px, 100%); height: auto; aspect-ratio: 1.31; }
@@ -57,7 +68,7 @@
       "https://github.com/Ruslan-Kurmashev",
       "https://ie.linkedin.com/in/ruslankurmashev"
     ],
-    "knowsAbout":["Autism","Neurodevelopment","Computational Biology","Biomedical Data Science","Machine Learning","Neuroimaging","Transcriptomics"]
+    "knowsAbout":["Autism","Neurodevelopment","Computational Biology","Biomedical Data Science","Machine Learning","Neuroimaging","Transcriptomics","Neurogenetics","Early Identification"]
   }
   </script>
 </head>
@@ -69,7 +80,6 @@
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <nav class="site-nav" aria-label="Primary">
       <a aria-current="page" href="/">about</a>
-      
       <a href="/publications/">publications</a>
       <a href="/projects/">projects</a>
       <a href="/experience/">experience</a>
@@ -90,13 +100,19 @@
       </div>
 
       <h1 class="home-name">Ruslan Kurmashev, MD</h1>
-      <p class="home-subtitle">Computational biology researcher · Autism &amp; neurodevelopment</p>
+      <p class="home-subtitle">Computational &amp; translational researcher · Autism &amp; neurodevelopment</p>
 
-      <p class="home-lead">I am a medical doctor and computational biology researcher studying autism and neurodevelopment across behavioral, molecular, neuroimaging and computational levels.</p>
+      <p class="home-lead"><strong>I study heterogeneity in autism and neurodevelopment</strong> - how biological variation, developmental context and dataset differences affect what we can reliably measure, model and translate into practice.</p>
 
-      <p>My work focuses on biological and clinical heterogeneity in autism, the generalisability of models across heterogeneous biomedical datasets, and the translation of research evidence into earlier and more reliable assessment and support pathways.</p>
+      <p>My research connects three levels of the same problem: computational robustness across heterogeneous biomedical datasets, biological heterogeneity across molecular and neuroimaging signals, and clinical translation into earlier and more reliable identification and support pathways.</p>
 
-      <p>Alongside my research, I contribute to scientific peer review, scholarly publishing and international research-community development.</p>
+      <p>My background combines medicine, computational biology and applied biomedical data science, with additional work in scientific peer review, scholarly publishing and research-community development.</p>
+
+      <div class="hero-actions">
+        <a class="btn" href="/projects/">Research</a>
+        <a class="btn" href="/publications/">Publications</a>
+        <a class="btn" href="/cv/">CV</a>
+      </div>
 
       <div class="social-links">
         <a href="https://scholar.google.com/citations?user=3xZmJncAAAAJ&hl=en">Google Scholar</a>
@@ -104,32 +120,68 @@
         <a href="https://www.researchgate.net/profile/Ruslan-Kurmashev">ResearchGate</a>
         <a href="https://github.com/Ruslan-Kurmashev">GitHub</a>
         <a href="https://ie.linkedin.com/in/ruslankurmashev">LinkedIn</a>
-        <a href="/cv/">CV</a>
       </div>
     </section>
 
     <section class="home-section">
-      <h2>Research</h2>
-      <p><strong>Autism &amp; neurodevelopment.</strong> Early identification, behavioral heterogeneity, developmental trajectories and clinically meaningful assessment pathways.</p>
-      <p><strong>Molecular &amp; computational neuroscience.</strong> Transcriptomics, neurogenetics, structural neuroimaging and biomarker evidence in neurodevelopmental conditions.</p>
-      <p><strong>Biomedical AI.</strong> Transfer learning, domain shift, model generalisation and reproducible analysis across heterogeneous biomedical datasets.</p>
-      
+      <h2>Research Programme</h2>
+      <p class="research-programme-intro">My work is organised around one central question: how can heterogeneous signals in autism and neurodevelopment be converted into findings that remain biologically interpretable, computationally robust and clinically useful?</p>
+      <div class="grid-3">
+        <div class="card research-pillar">
+          <h3>Computational robustness</h3>
+          <p>Transfer learning, domain shift, external generalisation and reproducible modelling across heterogeneous biomedical datasets.</p>
+        </div>
+        <div class="card research-pillar">
+          <h3>Biological heterogeneity</h3>
+          <p>Transcriptomics, neurogenetics and structural neuroimaging to examine convergent and developmentally variable mechanisms.</p>
+        </div>
+        <div class="card research-pillar">
+          <h3>Clinical translation</h3>
+          <p>Early identification, biomarkers and implementation pathways linking research signals to assessment, referral and support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section featured-research">
+      <h2>Featured Research</h2>
+      <div class="grid-3">
+        <article class="card">
+          <div class="meta">Computational robustness · 2026</div>
+          <h3><a href="/projects/transfer-learning-autdb/">AutDB: Cross-Dataset Autism Movement Benchmark</a></h3>
+          <p>Tests whether models retain useful signal when transferred across datasets with different feature spaces, task structures and distributions.</p>
+          <span class="meta">XGBoost · CORAL · domain shift · external transfer</span>
+          <a class="card-link" href="/projects/transfer-learning-autdb/">Project →</a>
+          <a class="card-link" href="/publications/transfer-learning-autism/">Preprint →</a>
+        </article>
+        <article class="card">
+          <div class="meta">Neuroimaging · multi-site data</div>
+          <h3><a href="/projects/abide-neuroanatomy/">Developmental Variation in Autism Neuroanatomy</a></h3>
+          <p>Examines whether age moderates associations between autism symptom domains and subcortical brain volumes across ABIDE I sites.</p>
+          <span class="meta">ABIDE I · structural MRI · age moderation</span>
+          <a class="card-link" href="/projects/abide-neuroanatomy/">Project →</a>
+          <a class="card-link" href="/publications/age-moderation-abide/">Paper →</a>
+        </article>
+        <article class="card">
+          <div class="meta">Clinical translation · implementation</div>
+          <h3><a href="/projects/early-autism-diagnostic-cascade/">Early Autism Diagnostic Cascade</a></h3>
+          <p>Maps measurable failure points between developmental concern, screening, referral, diagnostic assessment and access to support.</p>
+          <span class="meta">Early identification · referral · implementation research</span>
+          <a class="card-link" href="/projects/early-autism-diagnostic-cascade/">Project →</a>
+          <a class="card-link" href="/publications/early-autism-identification/">Paper →</a>
+        </article>
+      </div>
+      <p class="section-more"><a href="/projects/">all projects →</a></p>
     </section>
 
     <section class="home-section">
       <h2>Selected Publications</h2>
       <div class="publication-list">
-        <article class="pub-item pub-item-with-thumb">
-          <a class="pub-thumb" href="/publications/ube3a-dosage-autism/" aria-label="Open UBE3A publication details">
-            <img src="https://www.preprints.org/frontend/picture/ms_xml/manuscript/d6190c0bd2e1f601472bacafb2caaef9/preprints-213694-g001.png" alt="UBE3A dosage imbalance framework" loading="lazy">
-          </a>
-          <div class="pub-copy">
-            <div class="pub-type">Review article · 2026</div>
-            <h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Autism Phenotypes</a></h3>
-            <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
-            <p class="pub-venue"><em>American Journal of Medical Genetics Part B: Neuropsychiatric Genetics</em>, 2026</p>
-            <div class="pub-links"><a href="/publications/ube3a-dosage-autism/">Details</a><a href="https://doi.org/10.1002/ajmg.b.70025">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42464451/">PubMed</a><a href="/publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf">PDF</a></div>
-          </div>
+        <article class="pub-item">
+          <div class="pub-type">Original research article · 2025</div>
+          <h3 class="pub-title"><a href="/publications/age-moderation-abide/">Age Moderation of Associations Between Autism Symptom Domains and Subcortical Volumes: A Multi-Site ABIDE I Study</a></h3>
+          <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
+          <p class="pub-venue"><em>Saudi Journal of Medical and Pharmaceutical Sciences</em>, 11(12):1270–1285</p>
+          <div class="pub-links"><a href="/publications/age-moderation-abide/">Details</a><a href="https://doi.org/10.36348/sjmps.2025.v11i12.019">DOI</a><a href="https://saudijournals.com/articles/13073/">Publisher</a><a href="/publications/age-moderation-abide/kurmashev-2025-age-moderation-abide.pdf">PDF</a></div>
         </article>
 
         <article class="pub-item">
@@ -148,42 +200,28 @@
           <div class="pub-links"><a href="/publications/early-autism-identification/">Details</a><a href="https://doi.org/10.1002/ped4.70079">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42602726/">PubMed</a><a href="/publications/early-autism-identification/kurmashev-2026-early-autism-identification.pdf">PDF</a></div>
         </article>
 
-        <article class="pub-item">
-          <div class="pub-type">Original research article · 2025</div>
-          <h3 class="pub-title"><a href="/publications/age-moderation-abide/">Age Moderation of Associations Between Autism Symptom Domains and Subcortical Volumes: A Multi-Site ABIDE I Study</a></h3>
-          <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
-          <p class="pub-venue"><em>Saudi Journal of Medical and Pharmaceutical Sciences</em>, 11(12):1270–1285</p>
-          <div class="pub-links"><a href="/publications/age-moderation-abide/">Details</a><a href="https://doi.org/10.36348/sjmps.2025.v11i12.019">DOI</a><a href="https://saudijournals.com/articles/13073/">Publisher</a><a href="/publications/age-moderation-abide/kurmashev-2025-age-moderation-abide.pdf">PDF</a></div>
+        <article class="pub-item pub-item-with-thumb">
+          <a class="pub-thumb" href="/publications/ube3a-dosage-autism/" aria-label="Open UBE3A publication details">
+            <img src="https://www.preprints.org/frontend/picture/ms_xml/manuscript/d6190c0bd2e1f601472bacafb2caaef9/preprints-213694-g001.png" alt="UBE3A dosage imbalance framework" loading="lazy">
+          </a>
+          <div class="pub-copy">
+            <div class="pub-type">Review article · 2026</div>
+            <h3 class="pub-title"><a href="/publications/ube3a-dosage-autism/">UBE3A Dosage Imbalance as a Molecular Framework Linking Angelman Syndrome and Autism Phenotypes</a></h3>
+            <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
+            <p class="pub-venue"><em>American Journal of Medical Genetics Part B: Neuropsychiatric Genetics</em>, 2026</p>
+            <div class="pub-links"><a href="/publications/ube3a-dosage-autism/">Details</a><a href="https://doi.org/10.1002/ajmg.b.70025">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42464451/">PubMed</a><a href="/publications/ube3a-dosage-autism/kurmashev-2026-ube3a-dosage.pdf">PDF</a></div>
+          </div>
         </article>
       </div>
       <p class="section-more"><a href="/publications/">all publications →</a></p>
     </section>
 
     <section class="home-section">
-      <h2>Featured Research</h2>
-      <ul class="simple-list">
-        <li>
-          <h3><a href="/projects/transfer-learning-autdb/">AutDB: Cross-Dataset Autism Movement Benchmark</a></h3>
-          <p>Transfer learning and domain adaptation across heterogeneous autism-related movement datasets, with emphasis on external portability rather than within-dataset performance.</p>
-        </li>
-        <li>
-          <h3><a href="/projects/abide-neuroanatomy/">Developmental Variation in Autism Neuroanatomy</a></h3>
-          <p>Multi-site ABIDE I structural MRI study testing whether age moderates associations between autism symptom domains and subcortical brain volumes.</p>
-        </li>
-        <li>
-          <h3><a href="/projects/early-autism-diagnostic-cascade/">Early Autism Diagnostic Cascade</a></h3>
-          <p>Mixed-methods implementation research examining failure points between developmental concern, screening, referral, multidisciplinary assessment and access to support.</p>
-        </li>
-      </ul>
-      <p class="section-more"><a href="/projects/">all projects →</a></p>
-    </section>
-
-    <section class="home-section">
       <h2>Selected Impact &amp; Recognition</h2>
       <ul class="news-list">
-        <li><span class="news-date">2026</span><span><strong>MTU Prize for Innovation — Best Social Enterprise Award</strong> for Autism School.</span></li>
-        <li><span class="news-date">2026</span><span><strong>TITAN Health Awards — Silver Winner</strong> for Autism School in Digital Services for Children and Young People.</span></li>
-        <li><span class="news-date">2026</span><span><strong>ISMB Conference Fellowship — US$1,500</strong> supporting scientific participation and oral presentation.</span></li>
+        <li><span class="news-date">2026</span><span><strong>MTU Prize for Innovation - Best Social Enterprise Award</strong> for Autism School.</span></li>
+        <li><span class="news-date">2026</span><span><strong>TITAN Health Awards - Silver Winner</strong> for Autism School in Digital Services for Children and Young People.</span></li>
+        <li><span class="news-date">2026</span><span><strong>ISMB Conference Fellowship - US$1,500</strong> supporting scientific participation and oral presentation.</span></li>
         <li><span class="news-date">2026</span><span><strong>Editorial and publishing leadership</strong> through SIP Council and the AISI Journal of Sensory Integration and Child Development.</span></li>
       </ul>
       <p class="section-more"><a href="/recognition/">awards &amp; recognition →</a> · <a href="/academic-service/">academic service →</a></p>
@@ -215,6 +253,6 @@
     <div class="footer-meta">© 2026 Ruslan Kurmashev</div>
   </div>
 </footer>
-<script src="/assets/js/main.js?v=20260913-4" defer></script>
+<script src="/assets/js/main.js?v=20260915-1" defer></script>
 </body>
 </html>
