@@ -1,0 +1,48 @@
+name: Build CV PDF
+
+on:
+  push:
+    branches: [tmp-cv-pdf]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-cv-pdf
+
+      - name: Rebuild approved PDF
+        run: |
+          cat .tmp-cv/cv-part-*.b64 | tr -d '\n\r' | base64 -d > cv/ruslan-kurmashev-academic-cv.pdf
+          test "$(wc -c < cv/ruslan-kurmashev-academic-cv.pdf)" -eq 56511
+          file cv/ruslan-kurmashev-academic-cv.pdf
+
+      - name: Add download button and remove staging files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('cv/index.html')
+          s = p.read_text()
+          needle = '<div class="cv-actions"><a class="btn" href="/publications/">Publications</a>'
+          repl = '<div class="cv-actions"><a class="btn btn-primary" href="/cv/ruslan-kurmashev-academic-cv.pdf">Download Academic CV (PDF)</a><a class="btn" href="/publications/">Publications</a>'
+          if '/cv/ruslan-kurmashev-academic-cv.pdf' not in s:
+              if needle not in s:
+                  raise SystemExit('CV actions marker not found')
+              s = s.replace(needle, repl, 1)
+          p.write_text(s)
+          PY
+          rm -rf .tmp-cv
+          rm -f .github/workflows/build-cv-pdf.yml
+
+      - name: Commit rebuilt CV
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add downloadable academic CV PDF"
+          git push origin HEAD:tmp-cv-pdf
