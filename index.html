@@ -28,11 +28,8 @@
   <meta name="twitter:image:alt" content="Ruslan Kurmashev, MD - Computational Biology Researcher">
 
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/publication-list.css">
   <style>
-    .pub-item-with-thumb { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 22px; align-items: start; }
-    .pub-thumb { display: block; width: 220px; height: 168px; overflow: hidden; border: 1px solid #e4e6e8; background: #fff; }
-    .pub-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
-    .pub-copy { min-width: 0; }
     .research-programme-intro { max-width: 760px; color: var(--muted); margin-bottom: 1.35rem; }
     .research-pillar { padding-top: .85rem; border-top: 2px solid var(--theme); }
     .research-pillar h3 { margin: 0 0 .4rem; color: var(--theme-dark); font-weight: 500; }
@@ -44,10 +41,6 @@
     .featured-research .card-link + .card-link { margin-left: .7rem; }
     .home .hero-actions { margin-top: 1.15rem; }
     .home .social-links { margin-top: .9rem; }
-    @media (max-width: 640px) {
-      .pub-item-with-thumb { grid-template-columns: 1fr; gap: 12px; }
-      .pub-thumb { width: min(260px, 100%); height: auto; aspect-ratio: 1.31; }
-    }
   </style>
   <script type="application/ld+json">
   {
@@ -176,28 +169,43 @@
     <section class="home-section">
       <h2>Selected Publications</h2>
       <div class="publication-list">
-        <article class="pub-item">
-          <div class="pub-type">Original research article · 2025</div>
-          <h3 class="pub-title"><a href="/publications/age-moderation-abide/">Age Moderation of Associations Between Autism Symptom Domains and Subcortical Volumes: A Multi-Site ABIDE I Study</a></h3>
-          <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
-          <p class="pub-venue"><em>Saudi Journal of Medical and Pharmaceutical Sciences</em>, 11(12):1270–1285</p>
-          <div class="pub-links"><a href="/publications/age-moderation-abide/">Details</a><a href="https://doi.org/10.36348/sjmps.2025.v11i12.019">DOI</a><a href="https://saudijournals.com/articles/13073/">Publisher</a><a href="/publications/age-moderation-abide/kurmashev-2025-age-moderation-abide.pdf">PDF</a></div>
+        <article class="pub-item pub-item-with-thumb pub-item-with-plot">
+          <a class="pub-thumb" href="/publications/age-moderation-abide/" aria-label="Open ABIDE publication details">
+            <img src="/assets/img/publications/age-moderation-abide-social-age.jpg" alt="Social by age interaction in bilateral caudate volume with observed age distribution" loading="lazy">
+          </a>
+          <div class="pub-copy">
+            <div class="pub-type">Original research article · 2025</div>
+            <h3 class="pub-title"><a href="/publications/age-moderation-abide/">Age Moderation of Associations Between Autism Symptom Domains and Subcortical Volumes: A Multi-Site ABIDE I Study</a></h3>
+            <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
+            <p class="pub-venue"><em>Saudi Journal of Medical and Pharmaceutical Sciences</em>, 11(12):1270–1285</p>
+            <div class="pub-links"><a href="/publications/age-moderation-abide/">Details</a><a href="https://doi.org/10.36348/sjmps.2025.v11i12.019">DOI</a><a href="https://saudijournals.com/articles/13073/">Publisher</a><a href="/publications/age-moderation-abide/kurmashev-2025-age-moderation-abide.pdf">PDF</a></div>
+          </div>
         </article>
 
-        <article class="pub-item">
-          <div class="pub-type">Review article · 2026</div>
-          <h3 class="pub-title"><a href="/publications/transcriptomic-convergence-asd/">Transcriptomic Convergence in Autism Spectrum Disorder: Synaptic, Immune-Glial and RNA-Regulatory Axes in the Human Cerebral Cortex</a></h3>
-          <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
-          <p class="pub-venue"><em>International Journal of Developmental Neuroscience</em>, 86(5):e70157</p>
-          <div class="pub-links"><a href="/publications/transcriptomic-convergence-asd/">Details</a><a href="https://doi.org/10.1002/jdn.70157">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42423612/">PubMed</a><a href="/publications/transcriptomic-convergence-asd/kurmashev-2026-transcriptomic-convergence.pdf">PDF</a></div>
+        <article class="pub-item pub-item-with-thumb pub-item-with-evidence">
+          <a class="pub-thumb" href="/publications/transcriptomic-convergence-asd/" aria-label="Open transcriptomic convergence publication details">
+            <img src="/assets/img/publications/transcriptomic-convergence-evidence-map-v2.jpg" alt="Evidence profile and study strength summary for the transcriptomic convergence review" loading="lazy">
+          </a>
+          <div class="pub-copy">
+            <div class="pub-type">Review article · 2026</div>
+            <h3 class="pub-title"><a href="/publications/transcriptomic-convergence-asd/">Transcriptomic Convergence in Autism Spectrum Disorder: Synaptic, Immune-Glial and RNA-Regulatory Axes in the Human Cerebral Cortex</a></h3>
+            <p class="pub-authors"><strong>Ruslan Kurmashev</strong></p>
+            <p class="pub-venue"><em>International Journal of Developmental Neuroscience</em>, 86(5):e70157</p>
+            <div class="pub-links"><a href="/publications/transcriptomic-convergence-asd/">Details</a><a href="https://doi.org/10.1002/jdn.70157">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42423612/">PubMed</a><a href="/publications/transcriptomic-convergence-asd/kurmashev-2026-transcriptomic-convergence.pdf">PDF</a></div>
+          </div>
         </article>
 
-        <article class="pub-item">
-          <div class="pub-type">Review article · 2026</div>
-          <h3 class="pub-title"><a href="/publications/early-autism-identification/">Failure points in the early autism identification pathway for children aged 0–5 years: Why screening is not diagnosis</a></h3>
-          <p class="pub-authors"><strong>Ruslan Kurmashev</strong>, Mavile Karaieva</p>
-          <p class="pub-venue"><em>Pediatric Investigation</em>, 2026</p>
-          <div class="pub-links"><a href="/publications/early-autism-identification/">Details</a><a href="https://doi.org/10.1002/ped4.70079">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42602726/">PubMed</a><a href="/publications/early-autism-identification/kurmashev-2026-early-autism-identification.pdf">PDF</a></div>
+        <article class="pub-item pub-item-with-thumb pub-item-with-evidence">
+          <a class="pub-thumb" href="/publications/early-autism-identification/" aria-label="Open early autism identification publication details">
+            <img src="/assets/img/publications/early-autism-identification-pathway.jpg" alt="Early autism identification pathway from developmental concern to needs-based support" loading="lazy">
+          </a>
+          <div class="pub-copy">
+            <div class="pub-type">Review article · 2026</div>
+            <h3 class="pub-title"><a href="/publications/early-autism-identification/">Failure points in the early autism identification pathway for children aged 0–5 years: Why screening is not diagnosis</a></h3>
+            <p class="pub-authors"><strong>Ruslan Kurmashev</strong>, Mavile Karaieva</p>
+            <p class="pub-venue"><em>Pediatric Investigation</em>, 2026</p>
+            <div class="pub-links"><a href="/publications/early-autism-identification/">Details</a><a href="https://doi.org/10.1002/ped4.70079">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42602726/">PubMed</a><a href="/publications/early-autism-identification/kurmashev-2026-early-autism-identification.pdf">PDF</a></div>
+          </div>
         </article>
 
         <article class="pub-item pub-item-with-thumb">
@@ -253,6 +261,6 @@
     <div class="footer-meta">© 2026 Ruslan Kurmashev</div>
   </div>
 </footer>
-<script src="/assets/js/main.js?v=20260915-1" defer></script>
+<script src="/assets/js/main.js?v=20260915-2" defer></script>
 </body>
 </html>
