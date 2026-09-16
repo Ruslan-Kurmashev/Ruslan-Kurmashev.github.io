@@ -1,6 +1,6 @@
 # Ruslan Kurmashev — academic website
 
-Personal academic website of Ruslan Kurmashev — computational biology, AI, autism research and neurodevelopment.
+Personal academic website of Ruslan Kurmashev - computational biology, AI, autism research and neurodevelopment.
 
 - Website: https://ruslan-kurmashev.github.io/
 - Publications: https://ruslan-kurmashev.github.io/publications/
