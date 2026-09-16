@@ -1,34 +1,39 @@
 const nav = document.querySelector('.site-nav');
 const toggle = document.querySelector('.menu-toggle');
 
-// Defensive cleanup for any stale cached markup that still contains the removed Research page.
-if (nav) {
-  nav.querySelectorAll('a[href="/research/"], a[href="/research"]').forEach(link => link.remove());
-}
+if (nav && toggle) {
+  if (!nav.id) nav.id = 'primary-navigation';
+  if (!nav.hasAttribute('aria-label')) nav.setAttribute('aria-label', 'Primary');
+  toggle.setAttribute('aria-controls', nav.id);
 
-if (toggle && nav) {
+  const closeNav = ({ restoreFocus = false } = {}) => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    if (restoreFocus) toggle.focus();
+  };
+
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(open));
   });
 
-  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  }));
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => closeNav());
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav.classList.contains('open')) {
+      closeNav({ restoreFocus: true });
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (!nav.classList.contains('open')) return;
+    if (nav.contains(event.target) || toggle.contains(event.target)) return;
+    closeNav();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 760 && nav.classList.contains('open')) closeNav();
+  });
 }
-
-const researchGateUrl = 'https://www.researchgate.net/profile/Ruslan-Kurmashev';
-
-function appendResearchGate(container, label = 'ResearchGate') {
-  if (!container || container.querySelector('a[href*="researchgate.net"]')) return;
-  const link = document.createElement('a');
-  link.href = researchGateUrl;
-  link.textContent = label;
-  container.appendChild(link);
-}
-
-appendResearchGate(document.querySelector('.footer-links'));
-document.querySelectorAll('.social-links').forEach(group => appendResearchGate(group));
-
-// Navigation asset version: 2026-09-15-2
