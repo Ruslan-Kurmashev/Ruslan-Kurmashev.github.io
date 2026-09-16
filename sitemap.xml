@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ruslan-kurmashev.github.io/</loc><lastmod>2026-09-12</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/</loc><lastmod>2026-09-15</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/ruslan-kurmashev-publications.bib</loc><lastmod>2026-09-12</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/salivary-rna-autism/</loc><lastmod>2026-09-09</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/age-moderation-abide/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/salivary-rna-autism/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/age-moderation-abide/</loc><lastmod>2026-09-15</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/qchat-behavioral-domains/</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/qchat-behavioral-domains/kurmashev-2024-qchat-autism.pdf</loc></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/transcriptomic-convergence-asd/</loc><lastmod>2026-09-09</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/ube3a-dosage-autism/</loc><lastmod>2026-09-09</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/early-autism-identification/</loc><lastmod>2026-09-09</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/cortical-transcriptomics-asd/</loc><lastmod>2026-09-09</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/transcriptomic-signatures-asd/</loc><lastmod>2026-09-09</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/publications/transfer-learning-autism/</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/transcriptomic-convergence-asd/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/ube3a-dosage-autism/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/early-autism-identification/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/cortical-transcriptomics-asd/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/transcriptomic-signatures-asd/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/publications/transfer-learning-autism/</loc><lastmod>2026-09-15</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/screening-not-diagnosis-conference/</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/covid19-acute-abdomen/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/peptic-ulcer-perforation-risk-factors/</loc><lastmod>2026-09-10</lastmod></url>
@@ -25,17 +25,18 @@
   <url><loc>https://ruslan-kurmashev.github.io/publications/comparative-duodenum-pancreas-anatomy/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/femur-anthropometry/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/hip-joint-anatomy/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/projects/</loc><lastmod>2026-09-12</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/projects/transfer-learning-autdb/</loc></url>
-  <url><loc>https://ruslan-kurmashev.github.io/projects/abide-neuroanatomy/</loc></url>
-  <url><loc>https://ruslan-kurmashev.github.io/projects/early-autism-diagnostic-cascade/</loc></url>
-  <url><loc>https://ruslan-kurmashev.github.io/projects/autism-school/</loc><lastmod>2026-09-12</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/experience/</loc><lastmod>2026-09-12</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/academic-service/</loc></url>
-  <url><loc>https://ruslan-kurmashev.github.io/talks/</loc></url>
-  <url><loc>https://ruslan-kurmashev.github.io/recognition/</loc><lastmod>2026-09-12</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/cv/</loc><lastmod>2026-09-12</lastmod></url>
-  <url><loc>https://ruslan-kurmashev.github.io/contact/</loc><lastmod>2026-09-12</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/projects/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/projects/transfer-learning-autdb/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/projects/abide-neuroanatomy/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/projects/early-autism-diagnostic-cascade/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/projects/autism-school/</loc><lastmod>2026-09-16</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/experience/</loc><lastmod>2026-09-16</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/academic-service/</loc><lastmod>2026-09-16</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/talks/</loc><lastmod>2026-09-16</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/recognition/</loc><lastmod>2026-09-16</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/cv/</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/cv/ruslan-kurmashev-academic-cv.pdf</loc><lastmod>2026-09-15</lastmod></url>
+  <url><loc>https://ruslan-kurmashev.github.io/contact/</loc><lastmod>2026-09-16</lastmod></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/age-moderation-abide/kurmashev-2025-age-moderation-abide.pdf</loc></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/transcriptomic-signatures-asd/kurmashev-2026-transcriptomic-signatures.pdf</loc></url>
   <url><loc>https://ruslan-kurmashev.github.io/publications/transcriptomic-convergence-asd/kurmashev-2026-transcriptomic-convergence.pdf</loc></url>
